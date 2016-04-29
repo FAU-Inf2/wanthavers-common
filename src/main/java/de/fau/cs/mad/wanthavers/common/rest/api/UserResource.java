@@ -1,6 +1,6 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
-import com.wordnik.swagger.annotations.*;
+import io.swagger.annotations.Api;
 
 import javax.ws.rs.*;
 
