@@ -11,9 +11,6 @@ import javax.ws.rs.core.MediaType;
 public interface UserResource {
 
     @GET
-    User get();
-
-    @GET
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
