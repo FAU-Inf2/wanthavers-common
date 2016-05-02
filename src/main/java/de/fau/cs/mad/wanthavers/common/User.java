@@ -20,7 +20,7 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Date birthday;
 
     public User() {}
@@ -56,5 +56,10 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @JsonProperty
+    public Date getBirthday() { return birthday; }
+
+    public void setBirthday(Date birthday) { this.birthday = birthday; }
 
 }
