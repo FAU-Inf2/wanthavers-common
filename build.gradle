@@ -33,7 +33,8 @@ dependencies {
 
     // jackson is required for the generated POJOs
     compile 'com.fasterxml.jackson.core:jackson-databind:2.1.4'
-
-    compile "io.swagger:swagger-annotations:1.5.0"
-    compile 'javax.ws.rs:javax.ws.rs-api:2.0'
+	
+    compile 'io.swagger:swagger-annotations:1.5.0'
+	compile 'org.eclipse.persistence:javax.persistence:2.1.1'    
+	compile 'javax.ws.rs:javax.ws.rs-api:2.0'
 }
