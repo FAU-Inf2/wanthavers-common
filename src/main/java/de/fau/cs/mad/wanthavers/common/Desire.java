@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="Desire")
 public class Desire {
 
     @Id
@@ -23,7 +22,7 @@ public class Desire {
     @Column(nullable = false)
     private String description;
 
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User creator;
 
     @Column(nullable = false)

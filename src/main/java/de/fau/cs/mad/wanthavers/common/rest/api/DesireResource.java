@@ -7,10 +7,22 @@ import io.swagger.annotations.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("v1/desires")
 @Api(value = "v1/Desires", description = "Operations on Desires")
 public interface DesireResource {
+    @GET
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Find all desires",
+            notes = "Provides a list of all desires",
+            response = List.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    List<Desire> get();
 
     @GET
     @Path("/{id}")
@@ -64,11 +76,9 @@ public interface DesireResource {
     @GET
     @Path("/dummy")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Add some dummy desires",
-            notes = "creates dummy desires",
-            response = Desire.class)
+            notes = "creates dummy desires")
     void createDummies();
 
 }

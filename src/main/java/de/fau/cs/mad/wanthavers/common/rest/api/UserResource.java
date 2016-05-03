@@ -5,10 +5,22 @@ import io.swagger.annotations.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("v1/users")
 @Api(value = "v1/users", description = "Operations on users")
 public interface UserResource {
+    @GET
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Find all users",
+            notes = "Provides a list of all users",
+            response = List.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved list of users (may be empty)"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    List<User> get();
 
     @GET
     @Path("/{id}")
@@ -58,5 +70,13 @@ public interface UserResource {
     void deleteUser(
             @ApiParam(value = "id of the to be deleted user", required = true)
             @PathParam("id") long id);
+
+    @GET
+    @Path("/dummy")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Add some dummy users",
+            notes = "creates dummy users")
+    void createDummies();
 
 }
