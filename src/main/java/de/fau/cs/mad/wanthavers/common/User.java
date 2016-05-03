@@ -4,6 +4,7 @@ package de.fau.cs.mad.wanthavers.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.security.Principal;
 import java.util.Date;
 
 @Entity
