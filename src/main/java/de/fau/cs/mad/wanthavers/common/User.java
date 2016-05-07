@@ -8,9 +8,11 @@ import java.util.Date;
 
 @Entity
 public class User {
+    public static final String USER_ID = "userId";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
+    @Column(name = USER_ID)
     private long id;
 
     @Column(nullable = false)
