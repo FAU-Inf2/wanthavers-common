@@ -10,6 +10,11 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+
 // jar name is required, because project name starts with ../ this causes the buildscript to fail
 archivesBaseName = 'wanthavers-common'
 
@@ -35,9 +40,8 @@ dependencies {
 
     // jackson is required for the generated POJOs
     compile 'com.fasterxml.jackson.core:jackson-databind:2.1.4'
-	
     compile 'io.swagger:swagger-annotations:1.5.0'
-	compile 'org.eclipse.persistence:javax.persistence:2.1.1'    
+    compile 'org.eclipse.persistence:javax.persistence:2.1.1'
 	compile 'javax.ws.rs:javax.ws.rs-api:2.0'
     compile 'io.dropwizard:dropwizard-auth:' + dropwizardVersion
     //compile 'org.hibernate:hibernate-annotations:3.5.6-Final'
