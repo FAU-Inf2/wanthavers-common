@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Entity
 public class Desire {
+    public static final String DESIRE_ID = "desireId";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
