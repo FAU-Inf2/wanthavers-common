@@ -1,6 +1,8 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
 import de.fau.cs.mad.wanthavers.common.Haver;
+import de.fau.cs.mad.wanthavers.common.User;
+import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
 import javax.ws.rs.*;
@@ -38,7 +40,8 @@ public interface HaverResource {
     Haver createHaver(
             @ApiParam(value = "id of the desire", required = true)
             @PathParam("desire-id") long desireId,
-            @ApiParam(value = "Haver to create", required = true) Haver newHaver
+            @ApiParam(value = "Haver to create", required = true) Haver newHaver,
+            @Auth User user
     );
 
     @GET

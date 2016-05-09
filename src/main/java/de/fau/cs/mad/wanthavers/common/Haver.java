@@ -14,8 +14,8 @@ public class Haver {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = User.USER_ID, nullable = false)
-    private long userId;
+    @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
+    private User user;
 
     @Column
     private Date creationDate;
@@ -29,8 +29,8 @@ public class Haver {
 
     public Haver() {}
 
-    public Haver(long userId, Date creationDate, long desireId) {
-        this.userId = userId;
+    public Haver(User user, Date creationDate, long desireId) {
+        this.user = user;
         this.creationDate = creationDate;
         this.desireId = desireId;
     }
@@ -45,12 +45,12 @@ public class Haver {
     }
 
     @JsonProperty
-    public long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @JsonProperty
