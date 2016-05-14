@@ -44,10 +44,13 @@ public class Desire {
     @Column(nullable = true)
     private double dropzone_long;
 
+    @Column(nullable = false)
+    private int colorIndex;
+
 
     public Desire() {}
 
-    public Desire(String title, String description, User creator, double price, double reward, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long) {
+    public Desire(String title, String description, User creator, double price, double reward, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
         this.title = title;
         this.description = description;
         this.creator = creator;
@@ -57,6 +60,7 @@ public class Desire {
         this.dropzone_string = dropzone_string;
         this.dropzone_lat = dropzone_lat;
         this.dropzone_long = dropzone_long;
+        this.colorIndex = colorIndex;
     }
 
     @JsonProperty
@@ -149,4 +153,12 @@ public class Desire {
         this.dropzone_long = dropzone_long;
     }
 
+    @JsonProperty
+    public int getColorIndex() {
+        return colorIndex;
+    }
+
+    public void setColorIndex(int colorIndex) {
+        this.colorIndex = colorIndex;
+    }
 }
