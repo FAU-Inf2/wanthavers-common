@@ -1,9 +1,8 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
-import de.fau.cs.mad.wanthavers.common.Desire;
+import de.fau.cs.mad.wanthavers.common.Chat;
+import de.fau.cs.mad.wanthavers.common.Message;
 import de.fau.cs.mad.wanthavers.common.User;
-import de.fau.cs.mad.wanthavers.common.parse.Chat;
-import de.fau.cs.mad.wanthavers.common.parse.Message;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
@@ -27,6 +26,7 @@ public interface ChatResource {
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     List<Chat> get(@Auth User user);
 
+
     @GET
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -38,12 +38,15 @@ public interface ChatResource {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retrieved messages in body"),
             @ApiResponse(code = 400, message = "Invalid id supplied"),
-            @ApiResponse(code = 404, message = "Chat not found"),
+            @ApiResponse(code = 404, message = "ParseChat not found"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Message> get(
+    List<Message> getMessages(
             @ApiParam(value = "id of the chat", required = true)
-            @PathParam("id") long id,
-            @Auth User user);
+            @PathParam("id") String id,
+            @Auth User user
+            );
+
+
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -51,10 +54,10 @@ public interface ChatResource {
     @ApiOperation(
             value = "Create a new chat",
             notes = "creates a new chat between two users and desire",
-            response = User.class)
-    Chat createChat(@ApiParam(value = "id of user1", required = true) long user1,
-                    @ApiParam(value = "id of user2", required = true) long user2,
-                    @ApiParam(value = "id of desire", required = true) long desireId);
+            response = Chat.class)
+    Chat createChat(@ApiParam(value = "new chat", required = true) Chat chat,
+                    @Auth User user);
+
 
     @POST
     @Path("/{id}")
@@ -64,10 +67,10 @@ public interface ChatResource {
             value = "create a message",
             notes = "creates a message in given chat",
             response = Message.class)
-    Message updateUser(
-            @ApiParam(value = "id of the chat", required = true)
-            @PathParam("id") long id,
-            @ApiParam(value = "Message details", required = true) Message msg);
+    Message createMessage(
+            @ApiParam(value = "new message", required = true)
+            @PathParam("id") String id, Message msg, @Auth User user);
+
 
 
 
