@@ -4,10 +4,11 @@ package de.fau.cs.mad.wanthavers.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.security.Principal;
 import java.util.Date;
 
 @Entity
-public class User {
+public class User implements Principal {
     public static final String USER_ID = "userId";
 
     @Id
