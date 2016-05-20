@@ -25,6 +25,8 @@ public class User implements Principal {
     @Column(nullable = true)
     private Date birthday;
 
+    private double avgRating;
+
     public User() {}
 
     public User(String name, String email) {
@@ -64,4 +66,12 @@ public class User implements Principal {
 
     public void setBirthday(Date birthday) { this.birthday = birthday; }
 
+    @JsonProperty
+    public double getRating() {
+        return this.avgRating;
+    }
+
+    public void setRating(double rating) {
+        this.avgRating = rating;
+    }
 }
