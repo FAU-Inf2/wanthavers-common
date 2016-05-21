@@ -47,6 +47,8 @@ public class Desire {
     @Column(nullable = false)
     private int colorIndex;
 
+    @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
+    private Media image;
 
     public Desire() {}
 
@@ -160,5 +162,14 @@ public class Desire {
 
     public void setColorIndex(int colorIndex) {
         this.colorIndex = colorIndex;
+    }
+
+    @JsonProperty
+    public Media getImage() {
+        return image;
+    }
+
+    public void setImage(Media image) {
+        this.image = image;
     }
 }
