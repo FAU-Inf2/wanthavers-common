@@ -49,5 +49,5 @@ dependencies {
     compile 'javax.persistence:persistence-api:1.0.2'
     compile 'io.dropwizard:dropwizard-forms:' + dropwizardVersion
 
-
+    compile 'com.j256.ormlite:ormlite-android:4.48'
 }

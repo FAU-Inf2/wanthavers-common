@@ -1,34 +1,44 @@
 package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
 import java.util.Date;
 
 import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
+@DatabaseTable
 @Entity
 public class Rating extends AbstractModel {
 
+    @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
     private long id;
 
+    @DatabaseField
     @Column(name = USER_ID, nullable = false)
     private long userId;
 
+    @DatabaseField
     @Column
     private Date ratedTime;
 
+    @DatabaseField
     @Column(nullable = false)
     private float stars;
 
+    @DatabaseField
     @Column
     private String comment;
 
+    @DatabaseField(foreign = true)
     @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User rater;
 
+    @DatabaseField(foreign = true)
     @ManyToOne(targetEntity = Desire.class, cascade=CascadeType.ALL)
     private Desire ratedTransaction;
 

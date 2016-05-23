@@ -1,24 +1,29 @@
 package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
 
-
+@DatabaseTable
 @Entity
 public class Media extends AbstractModel {
 
-
+    @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @DatabaseField
     @Column
     private String fullRes;
 
+    @DatabaseField
     @Column
     private String mediumRes;
 
+    @DatabaseField
     @Column
     private String lowRes;
 

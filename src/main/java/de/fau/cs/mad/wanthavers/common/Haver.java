@@ -1,28 +1,35 @@
 package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
 import java.util.Date;
 
-
+@DatabaseTable
 @Entity
 public class Haver {
 
 
+    @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @DatabaseField(foreign = true)
     @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User user;
 
+    @DatabaseField
     @Column
     private Date creationDate;
 
+    @DatabaseField
     @Column(nullable = false)
     private boolean accepted;
 
+    @DatabaseField
     @Column(name = Desire.DESIRE_ID, nullable = false)
     private long desireId;
 

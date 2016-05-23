@@ -2,29 +2,37 @@ package de.fau.cs.mad.wanthavers.common;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
 import java.security.Principal;
 import java.util.Date;
 
+@DatabaseTable
 @Entity
 public class User extends AbstractModel implements Principal {
     public static final String USER_ID = "userId";
 
+    @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
     @Column(name = USER_ID)
     private long id;
 
+    @DatabaseField
     @Column(nullable = false)
     private String name;
 
+    @DatabaseField
     @Column(nullable = false)
     private String email;
 
+    @DatabaseField
     @Column(nullable = true)
     private Date birthday;
 
+    @DatabaseField
     private double avgRating;
 
     public User() {}

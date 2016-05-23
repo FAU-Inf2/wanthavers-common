@@ -2,50 +2,65 @@ package de.fau.cs.mad.wanthavers.common;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.util.Date;
 
+@DatabaseTable
 @Entity
 public class Desire extends AbstractModel {
     public static final String DESIRE_ID = "desireId";
 
+    @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
     private long id;
 
+    @DatabaseField
     @Column(nullable = false)
     private String title;
 
+    @DatabaseField
     @Column(nullable = false)
     private String description;
 
+    @DatabaseField(foreign = true)
     @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User creator;
 
+    @DatabaseField
     @Column(nullable = false)
     private double price;
 
+    @DatabaseField
     @Column(nullable = true)
     private double reward;
 
+    @DatabaseField
     @Column(nullable = true)
     private Date creation_time;
 
+    @DatabaseField
     @Column(nullable = true)
     private String dropzone_string;
 
+    @DatabaseField
     @Column(nullable = true)
     private double dropzone_lat;
 
+    @DatabaseField
     @Column(nullable = true)
     private double dropzone_long;
 
+    @DatabaseField
     @Column(nullable = false)
     private int colorIndex;
 
+    @DatabaseField(foreign = true)
     @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
     private Media image;
 
