@@ -6,11 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-public class Desire {
+public class Desire extends AbstractModel {
     public static final String DESIRE_ID = "desireId";
 
     @Id

@@ -3,11 +3,10 @@ package de.fau.cs.mad.wanthavers.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
-public class Media {
+public class Media extends AbstractModel {
 
 
     @Id

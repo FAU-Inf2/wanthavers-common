@@ -8,7 +8,7 @@ import java.util.Date;
 import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @Entity
-public class Rating {
+public class Rating extends AbstractModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID

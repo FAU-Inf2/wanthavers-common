@@ -8,7 +8,7 @@ import java.security.Principal;
 import java.util.Date;
 
 @Entity
-public class User implements Principal {
+public class User extends AbstractModel implements Principal {
     public static final String USER_ID = "userId";
 
     @Id
