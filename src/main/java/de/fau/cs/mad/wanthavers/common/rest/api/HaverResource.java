@@ -38,10 +38,10 @@ public interface HaverResource {
             notes = "Inserts a new haver into the database. Returns the new haver object including id.",
             response = Haver.class)
     Haver createHaver(
+            @Auth User user,
             @ApiParam(value = "id of the desire", required = true)
             @PathParam("desire-id") long desireId,
-            @ApiParam(value = "Haver to create", required = true) Haver newHaver,
-            @Auth User user
+            @ApiParam(value = "Haver to create", required = true) Haver newHaver
     );
 
     @GET

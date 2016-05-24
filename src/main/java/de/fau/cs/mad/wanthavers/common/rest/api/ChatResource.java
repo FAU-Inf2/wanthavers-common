@@ -55,8 +55,8 @@ public interface ChatResource {
             value = "Create a new chat",
             notes = "creates a new chat between two users and desire",
             response = Chat.class)
-    Chat createChat(@ApiParam(value = "new chat", required = true) Chat chat,
-                    @Auth User user);
+    Chat createChat(@Auth User user,
+                    @ApiParam(value = "new chat", required = true) Chat chat);
 
 
     @POST
@@ -68,10 +68,8 @@ public interface ChatResource {
             notes = "creates a message in given chat",
             response = Message.class)
     Message createMessage(
+            @Auth User user,
             @ApiParam(value = "new message", required = true)
-            @PathParam("id") String id, Message msg, @Auth User user);
-
-
-
+            @PathParam("id") String id, Message msg);
 
 }

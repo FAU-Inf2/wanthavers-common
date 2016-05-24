@@ -61,7 +61,7 @@ public interface DesireResource {
             value = "Create a new Desire",
             notes = "Inserts a new Desire into the database. Returns the new Desire object including id.",
             response = Desire.class)
-    Desire createDesire(@ApiParam(value = "Desire to create", required = true) Desire newDesire, @Auth User user);
+    Desire createDesire(@Auth User user, @ApiParam(value = "Desire to create", required = true) Desire newDesire);
 
     @PUT
     @Path("/{id}")
