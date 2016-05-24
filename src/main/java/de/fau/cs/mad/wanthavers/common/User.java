@@ -35,6 +35,10 @@ public class User extends AbstractModel implements Principal {
     @DatabaseField
     private double avgRating;
 
+    @DatabaseField
+    private Media image;
+
+
     public User() {}
 
     public User(String name, String email) {
@@ -81,5 +85,14 @@ public class User extends AbstractModel implements Principal {
 
     public void setRating(double rating) {
         this.avgRating = rating;
+    }
+
+    @JsonProperty
+    public Media getImage() {
+        return image;
+    }
+
+    public void setImage(Media image) {
+        this.image = image;
     }
 }
