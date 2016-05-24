@@ -21,8 +21,8 @@ public class Category extends AbstractModel {
     private String name;
 
     @DatabaseField
-    @ManyToOne(targetEntity = Category.class, cascade=CascadeType.ALL)
-    private Category parent;
+    @Column
+    private long parentId;
 
     @DatabaseField
     @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
@@ -50,12 +50,12 @@ public class Category extends AbstractModel {
     }
 
     @JsonProperty
-    public Category getParent() {
-        return parent;
+    public long getParent() {
+        return parentId;
     }
 
-    public void setParent(Category parent) {
-        this.parent = parent;
+    public void setParent(long parent) {
+        this.parentId = parent;
     }
 
     @JsonProperty
