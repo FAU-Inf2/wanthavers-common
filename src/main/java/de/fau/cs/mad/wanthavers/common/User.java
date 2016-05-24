@@ -35,7 +35,8 @@ public class User extends AbstractModel implements Principal {
     @DatabaseField
     private double avgRating;
 
-    @DatabaseField
+    @DatabaseField(foreign = true)
+    @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
     private Media image;
 
 
