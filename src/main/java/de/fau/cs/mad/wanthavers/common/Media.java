@@ -10,6 +10,17 @@ import javax.persistence.*;
 @Entity
 public class Media extends AbstractModel {
 
+    /**
+     * Resolutions for resizing
+     */
+    public static final int HIGH_RES   = 1200;
+    public static final int MEDIUM_RES = 600;
+    public static final int LOW_RES    = 200;
+    public static final int[] RESOLUTIONS = new int[]{HIGH_RES, MEDIUM_RES, LOW_RES};
+
+    /**
+     * Members
+     */
     @DatabaseField(id = true)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -64,5 +75,19 @@ public class Media extends AbstractModel {
 
     public void setLowRes(String lowRes) {
         this.lowRes = lowRes;
+    }
+
+    /**
+     * Generic Setter
+     * @param url
+     * @param resolution
+     */
+    public void setImage(String url, int resolution){
+        switch (resolution){
+            case LOW_RES:    this.setLowRes(url); break;
+            case MEDIUM_RES: this.setMediumRes(url);break;
+            case HIGH_RES:   this.setFullRes(url);break;
+            default: break;
+        }
     }
 }
