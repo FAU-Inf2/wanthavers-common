@@ -1,7 +1,9 @@
 package de.fau.cs.mad.wanthavers.common;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -38,7 +40,7 @@ public class User extends AbstractModel implements Principal, Serializable {
     @DatabaseField
     private double avgRating;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
     private Media image;
 
@@ -103,6 +105,7 @@ public class User extends AbstractModel implements Principal, Serializable {
         this.image = image;
     }
 
+    @JsonIgnore
     public Set<String> getRoles() {
         return roles;
     }

@@ -1,6 +1,7 @@
 package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -19,7 +20,7 @@ public class Haver implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User user;
 

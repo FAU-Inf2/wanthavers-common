@@ -1,6 +1,7 @@
 package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -36,11 +37,11 @@ public class Rating extends AbstractModel implements Serializable {
     @Column
     private String comment;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
     private User rater;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = Desire.class, cascade=CascadeType.ALL)
     private Desire ratedTransaction;
 
