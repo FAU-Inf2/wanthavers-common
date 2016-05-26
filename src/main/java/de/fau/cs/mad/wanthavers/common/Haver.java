@@ -5,11 +5,13 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.util.Date;
 
 @DatabaseTable
 @Entity
-public class Haver {
+public class Haver implements Serializable {
 
 
     @DatabaseField(id = true)

@@ -2,10 +2,11 @@ package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class Chat extends AbstractParseModel{
+public class Chat extends AbstractParseModel implements Serializable {
     private long user1;
     private long user2;
     private long desireId;

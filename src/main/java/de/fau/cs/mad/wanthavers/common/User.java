@@ -6,13 +6,15 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.security.Principal;
 import java.util.Date;
 import java.util.Set;
 
 @DatabaseTable
 @Entity
-public class User extends AbstractModel implements Principal {
+public class User extends AbstractModel implements Principal, Serializable {
     public static final String USER_ID = "userId";
 
     @DatabaseField(id = true)

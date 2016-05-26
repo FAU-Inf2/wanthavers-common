@@ -5,13 +5,15 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.util.Date;
 
 import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @DatabaseTable
 @Entity
-public class Rating extends AbstractModel {
+public class Rating extends AbstractModel implements Serializable {
 
     @DatabaseField(id = true)
     @Id

@@ -2,17 +2,20 @@ package de.fau.cs.mad.wanthavers.common;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+
+import java.io.Serializable;
 import java.util.Date;
 
 @DatabaseTable
 @Entity
-public class Desire extends AbstractModel {
+public class Desire extends AbstractModel implements Serializable {
     public static final String DESIRE_ID = "desireId";
 
     @DatabaseField(id = true)
@@ -28,7 +31,7 @@ public class Desire extends AbstractModel {
     @Column(nullable = false)
     private String description;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = User.class)
     private User creator;
 
@@ -60,7 +63,7 @@ public class Desire extends AbstractModel {
     @Column(nullable = false)
     private int colorIndex;
 
-    @DatabaseField(foreign = true)
+    @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
     private Media image;
 
