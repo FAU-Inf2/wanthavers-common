@@ -57,5 +57,12 @@ public interface MediaResource {
     Media createMedia(@FormDataParam("file") InputStream fileInputStream,
                        @FormDataParam("file") FormDataContentDisposition contentDispositionHeader);
 
+    @GET
+    @Path("/dummy")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Add some dummy media",
+            notes = "creates dummy media")
+    void createDummies();
 
 }

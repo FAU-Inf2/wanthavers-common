@@ -29,7 +29,7 @@ public class Desire extends AbstractModel {
     private String description;
 
     @DatabaseField(foreign = true)
-    @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = User.class)
     private User creator;
 
     @DatabaseField
