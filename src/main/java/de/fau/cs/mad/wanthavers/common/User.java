@@ -8,6 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import javax.persistence.*;
 import java.security.Principal;
 import java.util.Date;
+import java.util.Set;
 
 @DatabaseTable
 @Entity
@@ -39,6 +40,9 @@ public class User extends AbstractModel implements Principal {
     @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
     private Media image;
 
+    @Column
+    @ElementCollection(fetch = FetchType.EAGER, targetClass = String.class)
+    private Set<String> roles;
 
     public User() {}
 
@@ -95,5 +99,13 @@ public class User extends AbstractModel implements Principal {
 
     public void setImage(Media image) {
         this.image = image;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 }

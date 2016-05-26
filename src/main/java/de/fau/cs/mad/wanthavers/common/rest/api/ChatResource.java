@@ -26,7 +26,6 @@ public interface ChatResource {
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     List<Chat> get(@Auth User user);
 
-
     @GET
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -47,7 +46,6 @@ public interface ChatResource {
             );
 
 
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -57,7 +55,6 @@ public interface ChatResource {
             response = Chat.class)
     Chat createChat(@Auth User user,
                     @ApiParam(value = "new chat", required = true) Chat chat);
-
 
     @POST
     @Path("/{id}")

@@ -1,7 +1,6 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
 import de.fau.cs.mad.wanthavers.common.Rating;
-import de.fau.cs.mad.wanthavers.common.User;
 import io.swagger.annotations.*;
 
 import javax.ws.rs.*;
@@ -12,7 +11,6 @@ import java.util.List;
 @Path("v1/users/{user-id}/ratings")
 @Api(value = "v1/users/{user-id}/ratings", description = "Operations on Ratings")
 public interface RatingResource {
-
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)

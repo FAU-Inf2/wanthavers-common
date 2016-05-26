@@ -13,7 +13,6 @@ import java.util.List;
 @Path("v1/desires/{desire-id}/havers")
 @Api(value = "v1/desires/{desire-id}/havers", description = "Operations on Havers")
 public interface HaverResource {
-
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
@@ -62,7 +61,7 @@ public interface HaverResource {
             @PathParam("desire-id")long desireId,
             @ApiParam(value = "id of the haver", required = true)
             @PathParam("id") long id);
-    
+
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

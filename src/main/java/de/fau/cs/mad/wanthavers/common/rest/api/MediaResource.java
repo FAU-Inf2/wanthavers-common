@@ -1,7 +1,6 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
 
-
 import de.fau.cs.mad.wanthavers.common.Media;
 import io.swagger.annotations.*;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
@@ -16,7 +15,6 @@ import java.util.List;
 @Path("v1/media")
 @Api(value = "v1/media", description = "Operations on media")
 public interface MediaResource {
-
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)

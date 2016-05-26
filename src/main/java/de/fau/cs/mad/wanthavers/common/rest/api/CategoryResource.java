@@ -1,19 +1,15 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
 
-
 import de.fau.cs.mad.wanthavers.common.Category;
-import de.fau.cs.mad.wanthavers.common.Desire;
-import de.fau.cs.mad.wanthavers.common.Media;
 import de.fau.cs.mad.wanthavers.common.User;
+import de.fau.cs.mad.wanthavers.common.UserRoles;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
-import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
-import org.glassfish.jersey.media.multipart.FormDataParam;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.InputStream;
 import java.util.List;
 
 
@@ -55,6 +51,7 @@ public interface CategoryResource {
             @ApiParam(value = "id of the desired Category", required = true)
             @PathParam("id") long id);
 
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
