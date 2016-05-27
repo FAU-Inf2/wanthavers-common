@@ -46,14 +46,13 @@ public interface MediaResource {
             @PathParam("id") long id);
 
     @POST
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Create a new media object",
             notes = "uploads a new media object",
             response = Media.class)
-    Media createMedia(@FormDataParam("file") InputStream fileInputStream,
-                       @FormDataParam("file") FormDataContentDisposition contentDispositionHeader);
+    Media createMedia(@FormParam("base64") String base64, @FormParam("filename") String filename);
 
     @GET
     @Path("/dummy")
