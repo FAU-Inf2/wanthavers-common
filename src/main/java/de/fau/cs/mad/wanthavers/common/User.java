@@ -113,8 +113,4 @@ public class User extends AbstractModel implements Principal, Serializable {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
-
-    public boolean isAdmin(){
-        return this.roles.contains(UserRoles.USER_ROLE_ADMIN);
-    }
 }
