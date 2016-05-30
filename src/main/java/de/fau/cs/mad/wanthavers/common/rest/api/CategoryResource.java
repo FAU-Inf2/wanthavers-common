@@ -61,5 +61,28 @@ public interface CategoryResource {
             response = Category.class)
     Category create(@Auth User user, @ApiParam(value = "Category to create", required = true) Category newCategory);
 
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
+    @DELETE
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "deletes a category ",
+            notes = "deletes a category ",
+            response = Category.class)
+    void delete(@Auth User user, @ApiParam(value = "id of the desired Category", required = true) @PathParam("id") long id);
+
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "updates a category ",
+            notes = "updates a category ",
+            response = Category.class)
+    Category update(@Auth User user, @ApiParam(value = "id of the desired Category", required = true) @PathParam("id") long id, @ApiParam(value = "new category", required = true) Category newCategory);
+
+
 
 }
