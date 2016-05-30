@@ -40,6 +40,10 @@ public class Media extends AbstractModel implements Serializable {
     @Column
     private String lowRes;
 
+    @DatabaseField
+    @Column
+    private long creatorId;
+
 
     public Media() {}
 
@@ -91,5 +95,14 @@ public class Media extends AbstractModel implements Serializable {
             case HIGH_RES:   this.setFullRes(url);break;
             default: break;
         }
+    }
+
+    @JsonProperty
+    public long getCreator() {
+        return creatorId;
+    }
+
+    public void setCreator(long creatorId) {
+        this.creatorId = creatorId;
     }
 }
