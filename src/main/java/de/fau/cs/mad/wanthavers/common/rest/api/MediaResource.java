@@ -2,6 +2,8 @@ package de.fau.cs.mad.wanthavers.common.rest.api;
 
 
 import de.fau.cs.mad.wanthavers.common.Media;
+import de.fau.cs.mad.wanthavers.common.User;
+import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
@@ -52,7 +54,7 @@ public interface MediaResource {
             value = "Create a new media object",
             notes = "uploads a new media object",
             response = Media.class)
-    Media createMedia(@FormParam("base64") String base64, @FormParam("filename") String filename);
+    Media createMedia(@Auth User user, @FormParam("base64") String base64, @FormParam("filename") String filename);
 
     @GET
     @Path("/dummy")
