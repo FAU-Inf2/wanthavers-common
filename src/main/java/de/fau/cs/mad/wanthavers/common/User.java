@@ -33,7 +33,7 @@ public class User extends AbstractModel implements Principal, Serializable {
     private String name;
 
     @DatabaseField
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @DatabaseField
