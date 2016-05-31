@@ -25,6 +25,9 @@ public class User extends AbstractModel implements Principal, Serializable {
     @Column(name = USER_ID)
     private long id;
 
+    @Column(nullable = false)
+    private String password;
+
     @DatabaseField
     @Column(nullable = false)
     private String name;
@@ -62,6 +65,15 @@ public class User extends AbstractModel implements Principal, Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @JsonProperty
