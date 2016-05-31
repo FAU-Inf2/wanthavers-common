@@ -47,7 +47,7 @@ public interface UserResource {
             value = "Create a new user",
             notes = "Inserts a new user into the database. Returns the new user object including id.",
             response = User.class)
-    User createUser(@ApiParam(value = "User to create", required = true)User newUser);
+    User createUser(@ApiParam(value = "User to create", required = true)User newUser, @QueryParam("password")String password);
 
     @PUT
     @Path("/{id}")
