@@ -64,7 +64,7 @@ public class Desire extends AbstractModel implements Serializable {
     private int colorIndex;
 
     @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
-    @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = Media.class)
     private Media image;
 
     public Desire() {}

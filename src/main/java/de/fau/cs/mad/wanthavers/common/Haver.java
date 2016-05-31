@@ -21,7 +21,7 @@ public class Haver implements Serializable {
     private long id;
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
-    @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = User.class)
     private User user;
 
     @DatabaseField

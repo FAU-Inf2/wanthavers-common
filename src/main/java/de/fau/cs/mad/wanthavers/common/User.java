@@ -44,7 +44,7 @@ public class User extends AbstractModel implements Principal, Serializable {
     private double avgRating;
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
-    @ManyToOne(targetEntity = Media.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = Media.class)
     private Media image;
 
     @Column

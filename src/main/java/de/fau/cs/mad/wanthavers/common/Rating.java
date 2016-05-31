@@ -38,11 +38,11 @@ public class Rating extends AbstractModel implements Serializable {
     private String comment;
 
     @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
-    @ManyToOne(targetEntity = User.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = User.class)
     private User rater;
 
     @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
-    @ManyToOne(targetEntity = Desire.class, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = Desire.class)
     private Desire ratedTransaction;
 
 
