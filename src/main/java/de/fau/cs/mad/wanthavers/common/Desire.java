@@ -73,12 +73,13 @@ public class Desire extends AbstractModel implements Serializable {
 
     public Desire() {}
 
-    public Desire(String title, String description, User creator, double price, double reward, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
+    public Desire(String title, String description, User creator, double price, double reward, String currency, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
         this.title = title;
         this.description = description;
         this.creator = creator;
         this.price = price;
         this.reward = reward;
+        this.currency = currency;
         this.creation_time = creation_time;
         this.dropzone_string = dropzone_string;
         this.dropzone_lat = dropzone_lat;
