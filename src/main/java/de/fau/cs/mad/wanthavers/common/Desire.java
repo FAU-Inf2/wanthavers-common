@@ -44,6 +44,10 @@ public class Desire extends AbstractModel implements Serializable {
     private double reward;
 
     @DatabaseField
+    @Column
+    private String currency;
+
+    @DatabaseField
     @Column(nullable = true)
     private Date creation_time;
 
@@ -134,6 +138,15 @@ public class Desire extends AbstractModel implements Serializable {
 
     public void setReward(double reward) {
         this.reward = reward;
+    }
+
+    @JsonProperty
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     @JsonProperty
