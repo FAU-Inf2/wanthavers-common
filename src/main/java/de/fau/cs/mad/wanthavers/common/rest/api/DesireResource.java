@@ -87,7 +87,7 @@ public interface DesireResource {
     Desire updateDesireStatus(
             @ApiParam(value = "id of the Desire", required = true)
             @PathParam("id") long id,
-            @ApiParam(value = "new status of the specified Desire", required = true) int status);
+            @ApiParam(value = "new status of the specified Desire", required = true) @QueryParam("status") int status);
 
     @DELETE
     @Path("/{id}")
