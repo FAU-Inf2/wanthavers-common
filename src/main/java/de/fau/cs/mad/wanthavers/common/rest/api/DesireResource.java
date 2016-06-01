@@ -76,6 +76,19 @@ public interface DesireResource {
             @PathParam("id") long id,
             @ApiParam(value = "new details of the specified Desire", required = true) Desire Desire);
 
+    @PUT
+    @Path("/{id}/status")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Update an existing Desire",
+            notes = "Updates the details of an existing Desire. Returns the updated Desire object.",
+            response = Desire.class)
+    Desire updateDesireStatus(
+            @ApiParam(value = "id of the Desire", required = true)
+            @PathParam("id") long id,
+            @ApiParam(value = "new status of the specified Desire", required = true) int status);
+
     @DELETE
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

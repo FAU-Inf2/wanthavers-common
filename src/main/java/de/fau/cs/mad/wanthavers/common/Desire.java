@@ -71,6 +71,10 @@ public class Desire extends AbstractModel implements Serializable {
     @ManyToOne(targetEntity = Media.class)
     private Media image;
 
+    @DatabaseField
+    @Column
+    private int status = DesireStatus.STATUS_OPEN;
+
     public Desire() {}
 
     public Desire(String title, String description, User creator, double price, double reward, String currency, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
@@ -202,5 +206,14 @@ public class Desire extends AbstractModel implements Serializable {
 
     public void setImage(Media image) {
         this.image = image;
+    }
+
+    @JsonProperty
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
