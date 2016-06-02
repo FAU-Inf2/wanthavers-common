@@ -35,7 +35,21 @@ public interface DesireResource {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> getByLocation(@QueryParam("lat") double lat,@QueryParam("lon") double lon, @QueryParam("radius") double radius);
+    List<Desire> getByLocation(@QueryParam("lat") double lat, @QueryParam("lon") double lon, @QueryParam("radius") double radius);
+
+    @GET
+    @Path("/filters")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Filter desires by several options",
+            notes = "Provides a list of all filtered desires",
+            response = List.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    List<Desire> getByFilters(@QueryParam("categories") List<Long> categories, @QueryParam("price_min") double price_min, @QueryParam("price_max") double price_max,
+                              @QueryParam("reward_min") double reward_min, @QueryParam("rating_min") double rating_min, @QueryParam("lat") double lat, @QueryParam("lon") double lon, @QueryParam("radius") double radius);
 
     @GET
     @Path("/{id}")
