@@ -75,6 +75,11 @@ public class Desire extends AbstractModel implements Serializable {
     @Column
     private int status = DesireStatus.STATUS_OPEN;
 
+    @DatabaseField
+    @Column
+    private long categoryId;
+
+
     public Desire() {}
 
     public Desire(String title, String description, User creator, double price, double reward, String currency, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
@@ -215,5 +220,14 @@ public class Desire extends AbstractModel implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @JsonProperty
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 }
