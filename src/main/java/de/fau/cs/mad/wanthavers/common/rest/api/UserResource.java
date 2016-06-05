@@ -41,6 +41,25 @@ public interface UserResource {
             @PathParam("id")long id);
 
     @POST
+    @Path("/login")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "login for user via email and password",
+            notes = "Returns the user if it exists.",
+            response = User.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved user in body"),
+            @ApiResponse(code = 400, message = "Invalid email or password supplied"),
+            @ApiResponse(code = 404, message = "User not found"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    User login(
+            @ApiParam(value = "email of user", required = true)
+            @FormParam("email") String email,
+            @ApiParam(value = "password for user", required = true)
+            @FormParam("password") String password);
+
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
