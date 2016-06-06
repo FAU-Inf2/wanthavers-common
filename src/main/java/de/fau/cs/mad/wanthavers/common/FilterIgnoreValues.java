@@ -5,7 +5,7 @@ package de.fau.cs.mad.wanthavers.common;
  */
 public final class FilterIgnoreValues {
     public static final double IGNORE_PRICE_MIN = -1.;
-    public static final double IGNORE_PRICE_MAX = -1.;
+    public static final double IGNORE_PRICE_MAX = 3 * IGNORE_PRICE_MIN;
     public static final double IGNORE_REWARD_MIN = -1.;
     public static final double IGNORE_LATITUDE = -1337.;
     public static final double IGNORE_LONGITUDE = -1337.;
