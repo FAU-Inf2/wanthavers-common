@@ -106,6 +106,21 @@ public interface UserResource {
             @ApiParam(value = "id of the user", required = true)
             @PathParam("id")long id);
 
+    @POST
+    @Path("/{id}/resetpassword")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.WILDCARD)
+    @ApiOperation(
+            value = "reset user password",
+            notes = "reset user password",
+            response = Void.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "reset password"),
+            @ApiResponse(code = 400, message = "Invalid id supplied"),
+            @ApiResponse(code = 404, message = "User not found"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    void resetPassword(@FormParam("token") String token, @FormParam("password") String password);
+
     @GET
     @Path("/dummy")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
