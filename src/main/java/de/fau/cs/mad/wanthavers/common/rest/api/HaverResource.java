@@ -44,6 +44,23 @@ public interface HaverResource {
     );
 
     @GET
+    @Path("/accepted")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Find accepted haver",
+            notes = "Returns a haver if it exists.",
+            response = Haver.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved haver in body"),
+            @ApiResponse(code = 400, message = "Invalid id supplied"),
+            @ApiResponse(code = 404, message = "Haver not found"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    Haver getAccepted(
+            @ApiParam(value = "id of the desired desire", required = true)
+            @PathParam("desire-id")long desireId);
+
+    @GET
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)

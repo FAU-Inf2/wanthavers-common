@@ -1,8 +1,8 @@
 package de.fau.cs.mad.wanthavers.common;
 
 public final class HaverStatus {
-    public static int STATUS_DELETED = 0;
-    public static int STATUS_OPEN = 1;
-    public static int STATUS_IN_PROGRESS = 2;
-    public static int STATUS_DONE = 3;
+    public static int ADDED = 0;
+    public static int ACCEPTED = 1;
+    public static int REJECTED = 2;
+    public static int DELETED = 3;
 }

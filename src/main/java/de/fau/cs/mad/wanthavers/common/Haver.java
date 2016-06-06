@@ -30,7 +30,7 @@ public class Haver implements Serializable {
 
     @DatabaseField
     @Column(nullable = false)
-    private boolean accepted;
+    private int status;
 
     @DatabaseField
     @Column(name = Desire.DESIRE_ID, nullable = false)
@@ -82,11 +82,11 @@ public class Haver implements Serializable {
     }
 
     @JsonProperty
-    public boolean isAccepted() {
-        return accepted;
+    public int getStatus() {
+        return status;
     }
 
-    public void setAccepted(boolean accepted) {
-        this.accepted = accepted;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
