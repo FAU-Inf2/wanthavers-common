@@ -13,11 +13,13 @@ import java.io.Serializable;
 import java.security.Principal;
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @DatabaseTable
 @Entity
 public class User extends AbstractModel implements Principal, Serializable {
     public static final String USER_ID = "userId";
+    private static final long TOKEN_VALID_DURATION = 1000*60*60; //token is valid for 1h
 
     @DatabaseField(id = true)
     @Id
@@ -27,6 +29,12 @@ public class User extends AbstractModel implements Principal, Serializable {
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = true)
+    private String passwordToken;
+
+    @Column(nullable = true)
+    private long tokenCreationTimestamp;
 
     @DatabaseField
     @Column(nullable = false)
@@ -125,4 +133,34 @@ public class User extends AbstractModel implements Principal, Serializable {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
+
+    @JsonIgnore
+    public String createPasswordToken() {
+        String uuid = UUID.randomUUID().toString();
+        this.passwordToken = uuid.replace("-","");
+        this.tokenCreationTimestamp = System.currentTimeMillis();
+        return this.passwordToken;
+    }
+
+    @JsonIgnore
+    public boolean checkPasswordToken(String passwordToken) {
+        if(!isPasswordTokenStillValid()){
+            return false;
+        }
+
+        if(this.passwordToken.equals(passwordToken)){
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isPasswordTokenStillValid(){
+        if((System.currentTimeMillis()-this.tokenCreationTimestamp) > TOKEN_VALID_DURATION){
+            return false;
+        }
+        return true;
+    }
+
+
 }
