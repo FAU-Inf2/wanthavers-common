@@ -79,7 +79,7 @@ public interface DesireResource {
             value = "Update an existing Desire",
             notes = "Updates the details of an existing Desire. Returns the updated Desire object.",
             response = Desire.class)
-    Desire updateDesire(
+    Desire updateDesire(@Auth User user,
             @ApiParam(value = "id of the Desire", required = true)
             @PathParam("id") long id,
             @ApiParam(value = "new details of the specified Desire", required = true) Desire Desire);
@@ -92,20 +92,11 @@ public interface DesireResource {
             value = "Update an existing Desire",
             notes = "Updates the details of an existing Desire. Returns the updated Desire object.",
             response = Desire.class)
-    Desire updateDesireStatus(
+    Desire updateDesireStatus(@Auth User user,
             @ApiParam(value = "id of the Desire", required = true)
             @PathParam("id") long id,
             @ApiParam(value = "new status of the specified Desire", required = true) @QueryParam("status") int status);
 
-    @DELETE
-    @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Delete a Desire",
-            notes = "Removes a Desire from the database.")
-    void deleteDesire(
-            @ApiParam(value = "id of the to be deleted Desire", required = true)
-            @PathParam("id") long id);
 
     @GET
     @Path("/dummy")
