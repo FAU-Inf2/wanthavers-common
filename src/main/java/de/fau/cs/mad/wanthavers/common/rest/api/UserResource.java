@@ -2,6 +2,7 @@ package de.fau.cs.mad.wanthavers.common.rest.api;
 
 import de.fau.cs.mad.wanthavers.common.Desire;
 import de.fau.cs.mad.wanthavers.common.User;
+import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
 import javax.ws.rs.*;
@@ -58,9 +59,8 @@ public interface UserResource {
             notes = "Updates the details of an existing user. Returns the updated user object.",
             response = User.class)
     User updateUser(
-            @ApiParam(value = "id of the user", required = true)
-            @PathParam("id") long id,
-            @ApiParam(value = "new details of the specified user", required = true) User user);
+            @Auth User user,
+            @ApiParam(value = "new details of the specified user", required = true) User newUser);
 
     @DELETE
     @Path("/{id}")
@@ -68,9 +68,7 @@ public interface UserResource {
     @ApiOperation(
             value = "Delete a user",
             notes = "Removes a user from the database.")
-    void deleteUser(
-            @ApiParam(value = "id of the to be deleted user", required = true)
-            @PathParam("id") long id);
+    void deleteUser(@Auth User user);
 
     @GET
     @Path("/{id}/desires")
