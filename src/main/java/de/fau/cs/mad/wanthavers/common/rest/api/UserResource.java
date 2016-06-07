@@ -105,7 +105,7 @@ public interface UserResource {
     List<Desire> getDesiresAsHaver(
             @ApiParam(value = "id of the user", required = true)
             @PathParam("id")long id,
-            @QueryParam("status") Integer status);
+            @QueryParam("status") List<Integer> status);
 
     @POST
     @Path("/password")
