@@ -48,8 +48,8 @@ public interface DesireResource {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> getByFilters(@QueryParam("category") long category, @QueryParam("price_min") double price_min, @QueryParam("price_max") double price_max,
-                              @QueryParam("reward_min") double reward_min, @QueryParam("rating_min") float rating_min, @QueryParam("lat") double lat, @QueryParam("lon") double lon, @QueryParam("radius") double radius);
+    List<Desire> getByFilters(@QueryParam("category") Long category, @QueryParam("price_min") Double price_min, @QueryParam("price_max") Double price_max,
+                              @QueryParam("reward_min") Double reward_min, @QueryParam("rating_min") Float rating_min, @QueryParam("lat") Double lat, @QueryParam("lon") Double lon, @QueryParam("radius") Double radius);
 
     @GET
     @Path("/{id}")
