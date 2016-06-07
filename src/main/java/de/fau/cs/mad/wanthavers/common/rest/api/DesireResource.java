@@ -25,19 +25,6 @@ public interface DesireResource {
     List<Desire> get();
 
     @GET
-    @Path("/location")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(
-            value = "Filter desires by location",
-            notes = "Provides a list of all desires filtered by location",
-            response = List.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
-            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> getByLocation(@QueryParam("lat") double lat, @QueryParam("lon") double lon, @QueryParam("radius") double radius);
-
-    @GET
     @Path("/filters")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
