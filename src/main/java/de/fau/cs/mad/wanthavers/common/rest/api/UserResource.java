@@ -104,7 +104,8 @@ public interface UserResource {
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     List<Desire> getDesiresAsHaver(
             @ApiParam(value = "id of the user", required = true)
-            @PathParam("id")long id);
+            @PathParam("id")long id,
+            @QueryParam("status") Integer status);
 
     @POST
     @Path("/password")
