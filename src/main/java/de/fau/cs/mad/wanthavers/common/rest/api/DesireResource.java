@@ -1,5 +1,6 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
+import de.fau.cs.mad.wanthavers.common.Chat;
 import de.fau.cs.mad.wanthavers.common.Desire;
 import de.fau.cs.mad.wanthavers.common.User;
 import io.dropwizard.auth.Auth;
@@ -97,6 +98,18 @@ public interface DesireResource {
             @PathParam("id") long id,
             @ApiParam(value = "new status of the specified Desire", required = true) @QueryParam("status") int status);
 
+    @GET
+    @Path("/{id}/chat/{user2}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Returns or creates a chat between two users",
+            notes = "Returns or creates a chat between two users",
+            response = Chat.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retrieved chat"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    Chat getChat(@Auth User user, @PathParam("user2") long user2, @PathParam("id") long desireId);
 
     @GET
     @Path("/dummy")
