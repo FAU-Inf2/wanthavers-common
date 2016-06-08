@@ -60,6 +60,7 @@ public interface UserResource {
             response = User.class)
     User updateUser(
             @Auth User user,
+            @PathParam("id") long userId,
             @ApiParam(value = "new details of the specified user", required = true) User newUser);
 
     @DELETE
