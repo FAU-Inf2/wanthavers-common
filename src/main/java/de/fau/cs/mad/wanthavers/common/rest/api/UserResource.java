@@ -51,7 +51,6 @@ public interface UserResource {
     User createUser(@ApiParam(value = "User to create", required = true)User newUser, @QueryParam("password")String password);
 
     @PUT
-    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
@@ -60,7 +59,6 @@ public interface UserResource {
             response = User.class)
     User updateUser(
             @Auth User user,
-            @PathParam("id") long userId,
             @ApiParam(value = "new details of the specified user", required = true) User newUser);
 
     @DELETE
