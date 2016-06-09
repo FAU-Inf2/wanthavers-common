@@ -1,6 +1,5 @@
 package de.fau.cs.mad.wanthavers.common;
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -10,7 +9,7 @@ import java.util.List;
 @DatabaseTable
 public class DesireFilter {
 
-    @DatabaseField(id = true, generatedId = true)
+    @DatabaseField(id = true)
     private Integer id;
 
     @DatabaseField
@@ -37,7 +36,6 @@ public class DesireFilter {
     @DatabaseField
     private Double radius;
 
-    @DatabaseField(dataType = DataType.SERIALIZABLE)
     private List<Integer> status;
 
     @DatabaseField
