@@ -56,7 +56,7 @@ public class User extends AbstractModel implements Principal, Serializable {
     private Media image;
 
     @Column
-    @ElementCollection(fetch = FetchType.EAGER, targetClass = String.class)
+    @ElementCollection(fetch = FetchType.LAZY, targetClass = String.class)
     private Set<String> roles;
 
     public User() {}
