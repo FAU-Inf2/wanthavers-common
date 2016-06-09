@@ -10,7 +10,7 @@ import java.util.List;
 public class DesireFilter {
 
     @DatabaseField(id = true, generatedId = true)
-    private int id;
+    private Integer id;
 
     @DatabaseField
     private Long category;
