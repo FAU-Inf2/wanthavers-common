@@ -1,5 +1,6 @@
 package de.fau.cs.mad.wanthavers.common;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -36,10 +37,13 @@ public class DesireFilter {
     @DatabaseField
     private Double radius;
 
+    @DatabaseField(dataType = DataType.SERIALIZABLE)
     private List<Integer> status;
 
+    @DatabaseField
     private Date lastCreationTime;
 
+    @DatabaseField
     private Integer limit;
 
     public Integer getId() {
