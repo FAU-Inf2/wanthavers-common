@@ -59,6 +59,9 @@ public class User extends AbstractModel implements Principal, Serializable {
     @ElementCollection(fetch = FetchType.LAZY, targetClass = String.class)
     private Set<String> roles;
 
+    @Column
+    private int status;
+
     public User() {}
 
     public User(String name, String email) {
@@ -132,6 +135,15 @@ public class User extends AbstractModel implements Principal, Serializable {
 
     public void setRoles(Set<String> roles) {
         this.roles = roles;
+    }
+
+    @JsonProperty
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @JsonIgnore

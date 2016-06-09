@@ -62,7 +62,6 @@ public interface UserResource {
             @ApiParam(value = "new details of the specified user", required = true) User newUser);
 
     @DELETE
-    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @ApiOperation(
             value = "Delete a user",
