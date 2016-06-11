@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("v1/users/tokens")
-@Api(value = "v1/users/{user-id}/tokens", description = "Operations on CloudMessageTokens")
+@Api(value = "v1/users/tokens", description = "Operations on CloudMessageTokens")
 public interface CloudMessageTokenResource {
 
     @GET
