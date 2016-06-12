@@ -14,12 +14,7 @@ import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @DatabaseTable
 @Entity
-public class Rating extends AbstractModel implements Serializable {
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
-    private long id;
+public class Rating extends AbstractModel {
 
     @DatabaseField
     @Column(name = USER_ID, nullable = false)
@@ -62,15 +57,6 @@ public class Rating extends AbstractModel implements Serializable {
         this.ratedTransaction = ratedTransaction;
     }
 
-
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public long getUserId() {

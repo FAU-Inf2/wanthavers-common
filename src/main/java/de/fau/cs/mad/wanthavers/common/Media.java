@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @DatabaseTable
 @Entity
-public class Media extends AbstractModel implements Serializable {
+public class Media extends AbstractModel {
 
     /**
      * Resolutions for resizing
@@ -23,10 +23,6 @@ public class Media extends AbstractModel implements Serializable {
     /**
      * Members
      */
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
     @DatabaseField
     @Column
@@ -47,14 +43,6 @@ public class Media extends AbstractModel implements Serializable {
 
     public Media() {}
 
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public String getFullRes() {

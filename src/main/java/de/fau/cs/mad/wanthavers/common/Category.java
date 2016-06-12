@@ -11,13 +11,7 @@ import javax.persistence.*;
 
 @DatabaseTable
 @Entity
-public class Category extends AbstractModel implements Serializable {
-
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class Category extends AbstractModel {
 
     @DatabaseField
     @Column
@@ -31,17 +25,8 @@ public class Category extends AbstractModel implements Serializable {
     @ManyToOne(targetEntity = Media.class)
     private Media image;
 
-
     public Category() {}
 
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public String getName() {

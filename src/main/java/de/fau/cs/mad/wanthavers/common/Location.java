@@ -13,12 +13,7 @@ import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @DatabaseTable
 @Entity
-public class Location extends AbstractModel implements Serializable {
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class Location extends AbstractModel {
 
     @DatabaseField
     @Column(name = USER_ID, nullable = false)
@@ -40,17 +35,8 @@ public class Location extends AbstractModel implements Serializable {
     @Column
     private String fullAddress;
 
-    public Location() {
-    }
+    public Location() {}
 
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public long getUserId() {

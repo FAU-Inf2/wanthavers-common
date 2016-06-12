@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 
-public class Chat extends AbstractParseModel implements Serializable {
+public class Chat extends AbstractParseModel {
     private long user1;
     private long user2;
     private long desireId;

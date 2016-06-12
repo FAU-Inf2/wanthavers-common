@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 
-public class Message extends AbstractParseModel implements Serializable {
+public class Message extends AbstractParseModel {
     private long from;
     private String body;
 

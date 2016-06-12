@@ -16,13 +16,8 @@ import java.util.Objects;
 
 @DatabaseTable
 @Entity
-public class Desire extends AbstractModel implements Serializable {
+public class Desire extends AbstractModel {
     public static final String DESIRE_ID = "desireId";
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
-    private long id;
 
     @DatabaseField
     @Column(nullable = false)
@@ -95,15 +90,6 @@ public class Desire extends AbstractModel implements Serializable {
         this.dropzone_lat = dropzone_lat;
         this.dropzone_long = dropzone_long;
         this.colorIndex = colorIndex;
-    }
-
-    @JsonProperty
-    public long getID() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     @JsonProperty

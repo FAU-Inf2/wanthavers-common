@@ -9,12 +9,7 @@ import javax.persistence.*;
 import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @Entity
-public class CloudMessageToken {
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class CloudMessageToken extends AbstractModel {
 
     @DatabaseField
     @Column(name = USER_ID, nullable = false)
@@ -23,15 +18,6 @@ public class CloudMessageToken {
     @DatabaseField
     @Column(nullable = false)
     private String token;
-
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public long getUserId() {

@@ -12,13 +12,7 @@ import java.util.Date;
 
 @DatabaseTable
 @Entity
-public class Haver implements Serializable {
-
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class Haver extends AbstractModel {
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = User.class)
@@ -36,7 +30,6 @@ public class Haver implements Serializable {
     @Column(name = Desire.DESIRE_ID, nullable = false)
     private long desireId;
 
-
     public Haver() {}
 
     public Haver(User user, Date creationDate, long desireId) {
@@ -45,14 +38,6 @@ public class Haver implements Serializable {
         this.desireId = desireId;
     }
 
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @JsonProperty
     public User getUser() {

@@ -2,12 +2,13 @@ package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by philipp on 17.05.16.
  */
-public class AbstractParseModel {
+public class AbstractParseModel implements Serializable {
     private Date createdAt;
     private Date updatedAt;
     private String objectId;

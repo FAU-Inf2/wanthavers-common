@@ -9,7 +9,6 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import javax.persistence.*;
 
-import java.io.Serializable;
 import java.security.Principal;
 import java.util.Date;
 import java.util.Set;
@@ -17,15 +16,9 @@ import java.util.UUID;
 
 @DatabaseTable
 @Entity
-public class User extends AbstractModel implements Principal, Serializable {
+public class User extends AbstractModel implements Principal {
     public static final String USER_ID = "userId";
     private static final long TOKEN_VALID_DURATION = 1000*60*60; //token is valid for 1h
-
-    @DatabaseField(id = true)
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //TODO: change to UUID
-    @Column(name = USER_ID)
-    private long id;
 
     @Column(nullable = false)
     private String password;
@@ -70,12 +63,10 @@ public class User extends AbstractModel implements Principal, Serializable {
     }
 
     @JsonProperty
-    public long getID() {
+    @Column(name = USER_ID)
+    @Override
+    public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     @JsonIgnore
