@@ -19,7 +19,7 @@ public class Category extends AbstractModel {
 
     @DatabaseField
     @Column
-    private long parentId;
+    private long parent;
 
     @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = Media.class)
@@ -39,11 +39,11 @@ public class Category extends AbstractModel {
 
     @JsonProperty
     public long getParent() {
-        return parentId;
+        return parent;
     }
 
     public void setParent(long parent) {
-        this.parentId = parent;
+        this.parent = parent;
     }
 
     @JsonProperty
