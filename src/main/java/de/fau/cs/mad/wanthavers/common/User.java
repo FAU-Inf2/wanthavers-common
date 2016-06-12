@@ -7,11 +7,11 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.security.Principal;
 import java.util.Date;
-import java.util.Set;
 import java.util.UUID;
 
 @DatabaseTable
@@ -49,8 +49,7 @@ public class User extends AbstractModel implements Principal {
     private Media image;
 
     @Column
-    @ElementCollection(fetch = FetchType.LAZY, targetClass = String.class)
-    private Set<String> roles;
+    private String role;
 
     @Column
     private int status;
@@ -120,12 +119,12 @@ public class User extends AbstractModel implements Principal {
     }
 
     @JsonIgnore
-    public Set<String> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @JsonProperty
