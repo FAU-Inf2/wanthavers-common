@@ -35,7 +35,9 @@ public interface DesireResource {
                               @QueryParam("radius") Double radius,
                               @QueryParam("status") List<Integer> status,
                               @QueryParam("last_creation_time") Long lastCreationTime,
-                              @QueryParam("limit") Integer limit);
+                              @QueryParam("limit") Integer limit,
+                              @QueryParam("creator_id") Long creatorId,
+                              @QueryParam("haver_id") Long haverId);
 
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

@@ -44,6 +44,12 @@ public class DesireFilter {
     @DatabaseField
     private Integer limit;
 
+    @DatabaseField
+    private Long creatorId;
+
+    @DatabaseField
+    private Long haverId;
+
     public Integer getId() {
         return id;
     }
@@ -138,5 +144,21 @@ public class DesireFilter {
 
     public void setLimit(Integer limit) {
         this.limit = limit;
+    }
+
+    public Long getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public Long getHaverId() {
+        return haverId;
+    }
+
+    public void setHaverId(Long haverId) {
+        this.haverId = haverId;
     }
 }
