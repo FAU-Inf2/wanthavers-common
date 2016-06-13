@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,7 +43,9 @@ public class User extends AbstractModel implements Principal {
     private Date birthday;
 
     @DatabaseField
-    private double avgRating;
+    @Column
+    @Formula("SELECT avg(stars) FROM Rating WHERE userId = id")
+    private float avgRating;
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
     @ManyToOne(targetEntity = Media.class)
@@ -101,11 +104,11 @@ public class User extends AbstractModel implements Principal {
     public void setBirthday(Date birthday) { this.birthday = birthday; }
 
     @JsonProperty
-    public double getRating() {
+    public float getRating() {
         return this.avgRating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(float rating) {
         this.avgRating = rating;
     }
 

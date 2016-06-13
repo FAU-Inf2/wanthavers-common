@@ -45,7 +45,7 @@ dependencies {
     compile 'org.eclipse.persistence:javax.persistence:2.1.1'
 	compile 'javax.ws.rs:javax.ws.rs-api:2.0'
     compile 'io.dropwizard:dropwizard-auth:' + dropwizardVersion
-    //compile 'org.hibernate:hibernate-annotations:3.5.6-Final'
+    compile 'org.hibernate:hibernate-annotations:3.5.6-Final'
     compile 'javax.persistence:persistence-api:1.0.2'
     compile 'io.dropwizard:dropwizard-forms:' + dropwizardVersion
 
