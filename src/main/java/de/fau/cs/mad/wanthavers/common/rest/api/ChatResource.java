@@ -40,9 +40,11 @@ public interface ChatResource {
             @ApiResponse(code = 404, message = "ParseChat not found"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     List<Message> getMessages(
+            @Auth User user,
             @ApiParam(value = "id of the chat", required = true)
             @PathParam("id") String id,
-            @Auth User user
+            @QueryParam("last_creation_time") Long lastCreationTime,
+            @QueryParam("limit") Integer limit
             );
 
 
