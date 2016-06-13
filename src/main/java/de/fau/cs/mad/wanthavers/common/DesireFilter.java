@@ -50,6 +50,8 @@ public class DesireFilter {
     @DatabaseField
     private Long haverId;
 
+    private List<Integer> haverStatus;
+
     public Integer getId() {
         return id;
     }
@@ -160,5 +162,13 @@ public class DesireFilter {
 
     public void setHaverId(Long haverId) {
         this.haverId = haverId;
+    }
+
+    public List<Integer> getHaverStatus() {
+        return haverStatus;
+    }
+
+    public void setHaverStatus(List<Integer> haverStatus) {
+        this.haverStatus = haverStatus;
     }
 }

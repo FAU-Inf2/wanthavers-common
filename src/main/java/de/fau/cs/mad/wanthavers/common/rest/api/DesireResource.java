@@ -37,7 +37,8 @@ public interface DesireResource {
                               @QueryParam("last_creation_time") Long lastCreationTime,
                               @QueryParam("limit") Integer limit,
                               @QueryParam("creator_id") Long creatorId,
-                              @QueryParam("haver_id") Long haverId);
+                              @QueryParam("haver_id") Long haverId,
+                              @QueryParam("haver_status") List<Integer> haverStatus);
 
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
