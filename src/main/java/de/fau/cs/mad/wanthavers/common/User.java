@@ -44,7 +44,6 @@ public class User extends AbstractModel implements Principal {
 
     @DatabaseField
     @Column
-    @Formula("SELECT avg(stars) FROM Rating WHERE userId = id")
     private float avgRating;
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
