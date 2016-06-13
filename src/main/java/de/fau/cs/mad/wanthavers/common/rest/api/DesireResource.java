@@ -2,6 +2,7 @@ package de.fau.cs.mad.wanthavers.common.rest.api;
 
 import de.fau.cs.mad.wanthavers.common.Chat;
 import de.fau.cs.mad.wanthavers.common.Desire;
+import de.fau.cs.mad.wanthavers.common.DesireFlag;
 import de.fau.cs.mad.wanthavers.common.User;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;

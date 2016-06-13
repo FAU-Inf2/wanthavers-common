@@ -75,6 +75,10 @@ public class Desire extends AbstractModel {
     @Column
     private long categoryId;
 
+    @DatabaseField
+    @Column
+    private int flagCounter;
+
 
     public Desire() {}
 
@@ -216,6 +220,14 @@ public class Desire extends AbstractModel {
 
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
+    }
+    
+    public int getFlagCounter() {
+        return flagCounter;
+    }
+
+    public void setFlagCounter(int flagCounter) {
+        this.flagCounter = flagCounter;
     }
 
     @Override
