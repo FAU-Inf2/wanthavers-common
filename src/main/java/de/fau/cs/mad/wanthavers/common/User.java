@@ -10,12 +10,14 @@ import com.j256.ormlite.table.DatabaseTable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import java.security.Principal;
 import java.util.Date;
 import java.util.UUID;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "userseq")
 public class User extends AbstractModel implements Principal {
     public static final String USER_ID = "userId";
     private static final long TOKEN_VALID_DURATION = 1000*60*60; //token is valid for 1h

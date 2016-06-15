@@ -8,9 +8,11 @@ import de.fau.cs.mad.wanthavers.common.rest.api.FlagResource;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "desirefilterseq")
 public class DesireFlag extends AbstractModel {
 
     @DatabaseField

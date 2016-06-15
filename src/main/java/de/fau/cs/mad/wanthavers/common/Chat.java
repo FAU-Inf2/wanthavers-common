@@ -2,9 +2,12 @@ package de.fau.cs.mad.wanthavers.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
 
-
+@Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "chatseq")
 public class Chat extends AbstractParseModel {
     private long user1;
     private long user2;

@@ -16,7 +16,7 @@ public abstract class AbstractModel implements Serializable {
 
     @DatabaseField(id = true)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idgen")
     protected long id;
 
     protected Timestamp lastModified;

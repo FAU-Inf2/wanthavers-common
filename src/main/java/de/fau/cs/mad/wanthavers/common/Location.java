@@ -13,6 +13,7 @@ import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "locationseq")
 public class Location extends AbstractModel {
 
     @DatabaseField

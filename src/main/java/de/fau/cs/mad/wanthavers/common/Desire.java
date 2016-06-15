@@ -16,6 +16,7 @@ import java.util.Objects;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "desireseq")
 public class Desire extends AbstractModel {
     public static final String DESIRE_ID = "desireId";
 

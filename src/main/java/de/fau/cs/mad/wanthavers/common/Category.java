@@ -11,6 +11,7 @@ import javax.persistence.*;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "catseq")
 public class Category extends AbstractModel {
 
     @DatabaseField

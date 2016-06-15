@@ -9,6 +9,7 @@ import javax.persistence.*;
 import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "cloudmessagetokenseq")
 public class CloudMessageToken extends AbstractModel {
 
     @DatabaseField

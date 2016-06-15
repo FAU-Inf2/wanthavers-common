@@ -10,6 +10,7 @@ import javax.persistence.*;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "mediaseq")
 public class Media extends AbstractModel {
 
     /**

@@ -12,6 +12,7 @@ import java.util.Date;
 
 @DatabaseTable
 @Entity
+@SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "haverseq")
 public class Haver extends AbstractModel {
 
     @DatabaseField(foreign = true,dataType = DataType.SERIALIZABLE)
