@@ -34,7 +34,7 @@ public interface DesireResource {
                               @QueryParam("lon") Double lon,
                               @QueryParam("radius") Double radius,
                               @QueryParam("status") List<Integer> status,
-                              @QueryParam("last_creation_time") Long lastCreationTime,
+                              @QueryParam("last_desire_id") Long lastDesireId,
                               @QueryParam("limit") Integer limit,
                               @QueryParam("creator_id") Long creatorId);
 
