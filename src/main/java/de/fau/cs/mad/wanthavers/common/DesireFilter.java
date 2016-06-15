@@ -39,7 +39,7 @@ public class DesireFilter {
     private List<Integer> status;
 
     @DatabaseField
-    private Date lastCreationTime;
+    private Long lastDesireId;
 
     @DatabaseField
     private Integer limit;
@@ -127,12 +127,12 @@ public class DesireFilter {
         this.status = status;
     }
 
-    public Date getLastCreationTime() {
-        return lastCreationTime;
+    public Long getLastDesireId() {
+        return lastDesireId;
     }
 
-    public void setLastCreationTime(Date lastCreationTime) {
-        this.lastCreationTime = lastCreationTime;
+    public void setLastDesireId(Long lastDesireId) {
+        this.lastDesireId = lastDesireId;
     }
 
     public Integer getLimit() {
