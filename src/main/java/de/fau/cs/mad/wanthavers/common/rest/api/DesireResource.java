@@ -15,7 +15,6 @@ import java.util.List;
 @Api(value = "v1/Desires", description = "Operations on Desires")
 public interface DesireResource {
     @GET
-    @Path("/filters")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
@@ -37,18 +36,6 @@ public interface DesireResource {
                               @QueryParam("last_desire_id") Long lastDesireId,
                               @QueryParam("limit") Integer limit,
                               @QueryParam("creator_id") Long creatorId);
-
-    @GET
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(
-            value = "Find all desires",
-            notes = "Provides a list of all desires",
-            response = List.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Retrieved list of desires (may be empty)"),
-            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> get();
 
     @GET
     @Path("/{id}")

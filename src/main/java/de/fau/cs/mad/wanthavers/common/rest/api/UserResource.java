@@ -3,9 +3,11 @@ package de.fau.cs.mad.wanthavers.common.rest.api;
 import de.fau.cs.mad.wanthavers.common.Desire;
 import de.fau.cs.mad.wanthavers.common.Location;
 import de.fau.cs.mad.wanthavers.common.User;
+import de.fau.cs.mad.wanthavers.common.UserRoles;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @Path("v1/users")
 @Api(value = "v1/users", description = "Operations on users")
 public interface UserResource {
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
