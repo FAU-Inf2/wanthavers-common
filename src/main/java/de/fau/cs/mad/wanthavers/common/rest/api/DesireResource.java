@@ -35,7 +35,9 @@ public interface DesireResource {
                               @QueryParam("status") List<Integer> status,
                               @QueryParam("last_desire_id") Long lastDesireId,
                               @QueryParam("limit") Integer limit,
-                              @QueryParam("creator_id") Long creatorId);
+                              @QueryParam("creator_id") Long creatorId,
+                              @QueryParam("haver_id") Long haverId,
+                              @QueryParam("haver_status") List<Integer> haverStatus);
 
     @GET
     @Path("/{id}")
