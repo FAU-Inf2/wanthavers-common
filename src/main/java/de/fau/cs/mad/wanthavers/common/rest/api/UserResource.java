@@ -73,41 +73,6 @@ public interface UserResource {
     void deleteUser(@Auth User user);
 
     @GET
-    @Path("/{id}/desires")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(
-            value = "Get all desires of user",
-            notes = "Returns a user if it exists.",
-            response = List.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Retrieved desires in body"),
-            @ApiResponse(code = 400, message = "Invalid id supplied"),
-            @ApiResponse(code = 404, message = "User not found"),
-            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> getDesires(
-            @ApiParam(value = "id of the desired user", required = true)
-            @PathParam("id")long id);
-
-    @GET
-    @Path("/{id}/haverdesires")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(
-            value = "Get all desires of user as a haver",
-            notes = "Returns all desires for which user is a haver",
-            response = List.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Retrieved desires in body"),
-            @ApiResponse(code = 400, message = "Invalid id supplied"),
-            @ApiResponse(code = 404, message = "User not found"),
-            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
-    List<Desire> getDesiresAsHaver(
-            @ApiParam(value = "id of the user", required = true)
-            @PathParam("id")long id,
-            @QueryParam("status") List<Integer> status);
-
-    @GET
     @Path("/locations")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
