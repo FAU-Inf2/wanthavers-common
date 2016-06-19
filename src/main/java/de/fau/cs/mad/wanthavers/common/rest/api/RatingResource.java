@@ -1,8 +1,12 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
 import de.fau.cs.mad.wanthavers.common.Rating;
+import de.fau.cs.mad.wanthavers.common.User;
+import de.fau.cs.mad.wanthavers.common.UserRoles;
+import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -28,17 +32,18 @@ public interface RatingResource {
             @PathParam("user-id")long userId);
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Create a new rating",
             notes = "Inserts a new rating into the database. Returns the new rating object including id.",
             response = Rating.class)
     Rating createRating(
-            @ApiParam(value = "id of the desired user", required = true)
+            @Auth User rater,
             @PathParam("user-id")long userId,
-            @ApiParam(value = "Rating to create", required = true)Rating newRating
-            );
+            @QueryParam("desire_id") long desireId,
+            @QueryParam("stars") float stars,
+            @QueryParam("comment") String comment);
 
     @GET
     @Path("/{id}")
@@ -61,19 +66,22 @@ public interface RatingResource {
 
     @PUT
     @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Update an existing rating",
             notes = "Updates the details of an existing rating. Returns the updated rating object.",
             response = Rating.class)
     Rating updateRating(
+            @Auth User rater,
             @ApiParam(value = "id of the desired user", required = true)
             @PathParam("user-id")long userId,
             @ApiParam(value = "id of the rating", required = true)
             @PathParam("id") long id,
-            @ApiParam(value = "new details of the specified rating", required = true) Rating rating);
+            @QueryParam("stars") float stars,
+            @QueryParam("comment") String comment);
 
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
     @DELETE
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
