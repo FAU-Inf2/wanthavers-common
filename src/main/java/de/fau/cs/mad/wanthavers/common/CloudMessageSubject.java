@@ -32,4 +32,8 @@ public class CloudMessageSubject {
     public static String HAVERACCEPTED = "HaverAccepted";
     public static String HAVERACCEPTED_DESIREID = DESIRECOMPLETE_DESIREID;
     public static String HAVERACCPETED_DESIRETITLE = DESIRECOMPLETE_DESIRETITLE;
+
+    public static String NEWHAVER = "NewHaver";
+    public static String NEWHAVER_DESIREID = DESIRECOMPLETE_DESIREID;
+    public static String NEWHAVER_DESIRETITLE = DESIRECOMPLETE_DESIRETITLE;
 }
