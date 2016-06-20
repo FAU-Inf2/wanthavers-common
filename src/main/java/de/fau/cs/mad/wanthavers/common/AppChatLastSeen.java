@@ -17,4 +17,27 @@ public class AppChatLastSeen {
     @DatabaseField
     private String lastMessage;
 
+    public String getChatId() {
+        return chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public Date getLastSeen() {
+        return lastSeen;
+    }
+
+    public void setLastSeen(Date lastSeen) {
+        this.lastSeen = lastSeen;
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
+    }
 }
