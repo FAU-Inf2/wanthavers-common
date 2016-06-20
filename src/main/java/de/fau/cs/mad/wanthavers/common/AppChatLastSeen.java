@@ -3,6 +3,8 @@ package de.fau.cs.mad.wanthavers.common;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import org.glassfish.jersey.jaxb.internal.XmlCollectionJaxbProvider;
+
 import java.util.Date;
 
 @DatabaseTable
@@ -16,6 +18,14 @@ public class AppChatLastSeen {
 
     @DatabaseField
     private String lastMessage;
+
+    public AppChatLastSeen() { }
+
+    public AppChatLastSeen(String chatId, Date lastSeen, String lastMessage) {
+        this.chatId = chatId;
+        this.lastSeen = lastSeen;
+        this.lastMessage = lastMessage;
+    }
 
     public String getChatId() {
         return chatId;
