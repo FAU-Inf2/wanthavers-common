@@ -24,4 +24,12 @@ public class CloudMessageSubject {
     public static String NEWMESSAGE_CHATID = "chatId";
 
     public static String DESIREUPDATE = "DesireUpdate";
+
+    public static String DESIRECOMPLETE = "DesireComplete";
+    public static String DESIRECOMPLETE_DESIREID = "desireId";
+    public static String DESIRECOMPLETE_DESIRETITLE = "desireTitle";
+
+    public static String HAVERACCEPTED = "HaverAccepted";
+    public static String HAVERACCEPTED_DESIREID = DESIRECOMPLETE_DESIREID;
+    public static String HAVERACCPETED_DESIRETITLE = DESIRECOMPLETE_DESIRETITLE;
 }
