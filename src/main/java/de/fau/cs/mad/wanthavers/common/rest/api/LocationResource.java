@@ -37,7 +37,7 @@ public interface LocationResource {
 
     @PUT
     @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Update an existing location",
