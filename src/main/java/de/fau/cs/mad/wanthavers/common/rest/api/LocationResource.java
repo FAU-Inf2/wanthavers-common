@@ -47,4 +47,12 @@ public interface LocationResource {
                           @ApiParam(value = "id of the location", required = true) @PathParam("id") long id,
                           @ApiParam(value = "Location to create", required = true) Location location);
 
+    @DELETE
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "",
+            notes = "")
+    void deleteLocation(@Auth User user, @ApiParam(value = "id of the location", required = true) @PathParam("id") long id);
+
 }
