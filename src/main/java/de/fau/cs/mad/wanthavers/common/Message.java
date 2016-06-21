@@ -24,15 +24,7 @@ public class Message extends AbstractParseModel {
 
     @JsonProperty
     public String getBody() {
-        byte[] utf8 = null;
-
-        try {
-            utf8 = body.getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            return body;
-        }
-        
-        return new String(utf8);
+        return body;
     }
 
     public void setBody(String body) {

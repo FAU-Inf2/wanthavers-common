@@ -29,7 +29,7 @@ public interface ChatResource {
     @GET
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Find all messages for chat id",
             notes = "Returns all messages if it exists.",
