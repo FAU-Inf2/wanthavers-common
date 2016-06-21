@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 
 @Entity
 @SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "messageseq")
@@ -23,7 +24,15 @@ public class Message extends AbstractParseModel {
 
     @JsonProperty
     public String getBody() {
-        return body;
+        byte[] utf8 = null;
+
+        try {
+            utf8 = body.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return body;
+        }
+        
+        return new String(utf8);
     }
 
     public void setBody(String body) {
