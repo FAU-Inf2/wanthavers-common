@@ -80,6 +80,13 @@ public class Desire extends AbstractModel {
     @Column
     private int flagCounter;
 
+    @DatabaseField
+    @Column
+    private boolean creatorHasRated;
+
+    @DatabaseField
+    @Column
+    private boolean haverHasRated;
 
     public Desire() {}
 
@@ -229,6 +236,24 @@ public class Desire extends AbstractModel {
 
     public void setFlagCounter(int flagCounter) {
         this.flagCounter = flagCounter;
+    }
+
+    @JsonProperty
+    public boolean getCreatorHasRated() {
+        return creatorHasRated;
+    }
+
+    public void setCreatorHasRated(boolean creatorHasRated) {
+        this.creatorHasRated = creatorHasRated;
+    }
+
+    @JsonProperty
+    public boolean getHaverHasRated() {
+        return haverHasRated;
+    }
+
+    public void setHaverHasRated(boolean haverHasRated) {
+        this.haverHasRated = haverHasRated;
     }
 
     @Override
