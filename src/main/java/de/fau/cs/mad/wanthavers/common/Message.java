@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 
 @Entity
 @SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "messageseq")

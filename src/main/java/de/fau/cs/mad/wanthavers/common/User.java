@@ -51,6 +51,10 @@ public class User extends AbstractModel implements Principal {
     @ManyToOne(targetEntity = Media.class)
     private Media image;
 
+    @DatabaseField
+    @Column
+    private String langCode;
+
     @Column
     private String role;
 
@@ -167,5 +171,12 @@ public class User extends AbstractModel implements Principal {
         return true;
     }
 
+    @JsonProperty
+    public String getLangCode() {
+        return langCode;
+    }
 
+    public void setLangCode(String langCode) {
+        this.langCode = langCode;
+    }
 }
