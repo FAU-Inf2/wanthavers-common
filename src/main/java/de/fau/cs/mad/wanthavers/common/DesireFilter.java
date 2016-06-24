@@ -1,5 +1,6 @@
 package de.fau.cs.mad.wanthavers.common;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -48,6 +49,9 @@ public class DesireFilter {
 
     @DatabaseField
     private Long haverId;
+
+    @DatabaseField(dataType = DataType.SERIALIZABLE, foreign=true, foreignAutoRefresh=true)
+    private Location location;
 
     private List<Integer> haverStatus;
 
@@ -169,5 +173,13 @@ public class DesireFilter {
 
     public void setHaverStatus(List<Integer> haverStatus) {
         this.haverStatus = haverStatus;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
