@@ -1,5 +1,6 @@
 package de.fau.cs.mad.wanthavers.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -12,11 +13,13 @@ import javax.persistence.*;
 @DatabaseTable
 @Entity
 @SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "catseq")
-public class Category extends AbstractModel {
+public class Category extends AbstractModel{
+
+    private String name;
 
     @DatabaseField
     @Column
-    private String name;
+    private String langStringKey;
 
     @DatabaseField
     @Column
@@ -55,4 +58,14 @@ public class Category extends AbstractModel {
     public void setImage(Media image) {
         this.image = image;
     }
+
+    @JsonIgnore
+    public String getLangStringKey() {
+        return langStringKey;
+    }
+
+    public void setLangStringKey(String langStringKey) {
+        this.langStringKey = langStringKey;
+    }
+
 }

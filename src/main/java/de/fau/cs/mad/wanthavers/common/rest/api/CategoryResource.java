@@ -33,7 +33,7 @@ public interface CategoryResource {
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     Category get(
             @ApiParam(value = "id of the desired Category", required = true)
-            @PathParam("id") long id);
+            @PathParam("id") long id, @Auth User user);
 
     @GET
     @Path("/{id}/subcategories")
@@ -50,7 +50,7 @@ public interface CategoryResource {
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     List<Category> getSub(
             @ApiParam(value = "id of the desired Category", required = true)
-            @PathParam("id") long id, @QueryParam("recursive") boolean recursive);
+            @PathParam("id") long id, @QueryParam("recursive") boolean recursive, @Auth User user);
 
     @GET
     @Path("/{id}/desires")
