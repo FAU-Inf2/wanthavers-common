@@ -110,14 +110,4 @@ public interface RatingResource {
     Rating avgRating(
             @ApiParam(value = "id of the desired user", required = true)
             @PathParam("user-id")long userId);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy ratings",
-            notes = "creates dummy ratings")
-    void createDummies(
-            @ApiParam(value = "id of the desired user", required = true)
-            @PathParam("user-id")long userId);
 }

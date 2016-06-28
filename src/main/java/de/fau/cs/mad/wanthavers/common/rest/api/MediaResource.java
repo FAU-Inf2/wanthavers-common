@@ -55,13 +55,4 @@ public interface MediaResource {
             notes = "uploads a new media object",
             response = Media.class)
     Media createMedia(@Auth User user, @FormParam("base64") String base64, @FormParam("filename") String filename);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy media",
-            notes = "creates dummy media")
-    void createDummies();
-
 }

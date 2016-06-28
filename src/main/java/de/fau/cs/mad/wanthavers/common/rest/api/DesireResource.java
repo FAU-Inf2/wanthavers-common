@@ -103,13 +103,4 @@ public interface DesireResource {
             @ApiResponse(code = 200, message = "Retrieved chat"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     Chat getChat(@Auth User user, @PathParam("user2") long user2, @PathParam("id") long desireId);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy desires",
-            notes = "creates dummy desires")
-    void createDummies();
-
 }

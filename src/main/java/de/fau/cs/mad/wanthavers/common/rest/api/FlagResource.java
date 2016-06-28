@@ -50,14 +50,4 @@ public interface FlagResource {
                           @PathParam("id") long id,
                           @ApiParam(value = "id of the Desire", required = true)
                           @PathParam("flagId") long flagId);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy flags",
-            notes = "creates dummy flags")
-    void createDummies(
-            @ApiParam(value = "id of the desire", required = true)
-            @PathParam("id")long id);
 }

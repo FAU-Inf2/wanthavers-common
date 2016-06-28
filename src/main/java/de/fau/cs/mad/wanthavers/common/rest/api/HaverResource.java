@@ -105,13 +105,4 @@ public interface HaverResource {
             @PathParam("desire-id") long desireId,
             @ApiParam(value = "id of the to be deleted haver", required = true)
             @PathParam("id") long id);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy havers",
-            notes = "creates dummy havers")
-    void createDummies();
-
 }

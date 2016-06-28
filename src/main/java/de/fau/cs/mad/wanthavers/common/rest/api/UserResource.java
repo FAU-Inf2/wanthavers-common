@@ -115,13 +115,4 @@ public interface UserResource {
             @ApiResponse(code = 400, message = "Invalid id supplied"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     void sendToken(@FormParam("email") String email);
-
-    @GET
-    @Path("/dummy")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Add some dummy users",
-            notes = "creates dummy users")
-    void createDummies();
-
 }
