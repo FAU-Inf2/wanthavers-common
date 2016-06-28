@@ -22,6 +22,20 @@ public class User extends AbstractModel implements Principal {
     public static final String USER_ID = "userId";
     private static final long TOKEN_VALID_DURATION = 1000*60*60; //token is valid for 1h
 
+    public static class DefaultUserImage {
+        public static final String lowRes = "https://s3.eu-central-1.amazonaws.com/whimages/571509e0-c381-430b-b123-0f01c103d15d.png";
+        public static final String mediumRes = "https://s3.eu-central-1.amazonaws.com/whimages/55c5efbc-5ae7-4c91-9c52-f70a57d3356c.png";
+        public static final String fullRes = "https://s3.eu-central-1.amazonaws.com/whimages/0f6e92b1-4500-422b-91f9-ea760f492718.png";
+
+        public static Media get() {
+            Media ret = new Media();
+            ret.setLowRes(lowRes);
+            ret.setMediumRes(mediumRes);
+            ret.setFullRes(fullRes);
+            return ret;
+        }
+    }
+
     @Column(nullable = false)
     private String password;
 
