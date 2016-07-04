@@ -86,7 +86,7 @@ public class Desire extends AbstractModel {
     @Column
     private boolean haverHasRated;
 
-    private double distanceToUserPosition;
+    private long distanceToUserPosition;
 
     public Desire() {}
 
@@ -257,11 +257,11 @@ public class Desire extends AbstractModel {
     }
 
     @JsonProperty
-    public double getDistanceToUserPosition() {
+    public long getDistanceToUserPosition() {
         return distanceToUserPosition;
     }
 
-    public void setDistanceToUserPosition(double distanceToUserPosition) {
+    public void setDistanceToUserPosition(long distanceToUserPosition) {
         this.distanceToUserPosition = distanceToUserPosition;
     }
 
