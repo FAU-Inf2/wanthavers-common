@@ -87,6 +87,6 @@ public interface CloudMessageTokenResource {
             @ApiParam(value = "auth user", required = true)
             @Auth User user,
             @ApiParam(value = "id of the to be deleted token", required = true)
-            @PathParam("id") long id);
+            @PathParam("id") String token);
 
 }
