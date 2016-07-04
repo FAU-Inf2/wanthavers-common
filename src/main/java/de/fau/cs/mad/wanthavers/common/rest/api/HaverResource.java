@@ -61,11 +61,11 @@ public interface HaverResource {
             @PathParam("desire-id")long desireId);
 
     @GET
-    @Path("/{id}")
+    @Path("/{user-id}")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
-            value = "Find haver by id",
+            value = "Find haver by user-id",
             notes = "Returns a haver if it exists.",
             response = Haver.class)
     @ApiResponses(value = {
@@ -76,8 +76,8 @@ public interface HaverResource {
     Haver get(
             @ApiParam(value = "id of the desired desire", required = true)
             @PathParam("desire-id")long desireId,
-            @ApiParam(value = "id of the haver", required = true)
-            @PathParam("id") long id);
+            @ApiParam(value = "id of the user", required = true)
+            @PathParam("user-id") long userId);
 
     @PUT
     @Path("/{id}")
@@ -93,16 +93,4 @@ public interface HaverResource {
             @ApiParam(value = "id of the haver relation", required = true)
             @PathParam("id") long id,
             @ApiParam(value = "new details of the specified haver", required = true) Haver haver);
-
-    @DELETE
-    @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @ApiOperation(
-            value = "Delete a haver",
-            notes = "Removes a haver from the database.")
-    void deleteHaver(
-            @ApiParam(value = "id of the desire", required = true)
-            @PathParam("desire-id") long desireId,
-            @ApiParam(value = "id of the to be deleted haver", required = true)
-            @PathParam("id") long id);
 }

@@ -10,9 +10,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import javax.persistence.*;
 import javax.persistence.Entity;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 @DatabaseTable
 @Entity
@@ -87,6 +85,8 @@ public class Desire extends AbstractModel {
     @DatabaseField
     @Column
     private boolean haverHasRated;
+
+    private double distanceToUserPosition;
 
     public Desire() {}
 
@@ -254,6 +254,15 @@ public class Desire extends AbstractModel {
 
     public void setHaverHasRated(boolean haverHasRated) {
         this.haverHasRated = haverHasRated;
+    }
+
+    @JsonProperty
+    public double getDistanceToUserPosition() {
+        return distanceToUserPosition;
+    }
+
+    public void setDistanceToUserPosition(double distanceToUserPosition) {
+        this.distanceToUserPosition = distanceToUserPosition;
     }
 
     @Override
