@@ -93,4 +93,19 @@ public interface HaverResource {
             @ApiParam(value = "id of the haver relation", required = true)
             @PathParam("user-id") long userId,
             @ApiParam(value = "new details of the specified haver", required = true) Haver haver);
+
+    @PUT
+    @Path("/{user-id}/status")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "Update an existing haver status",
+            notes = "Updates the status of an existing haver relation. Returns the updated object.",
+            response = Haver.class)
+    Haver updateHaverStatus(
+            @ApiParam(value = "id of the desire", required = true)
+            @PathParam("desire-id") long desireId,
+            @ApiParam(value = "id of the haver relation", required = true)
+            @PathParam("user-id") long userId,
+            int status);
 }
