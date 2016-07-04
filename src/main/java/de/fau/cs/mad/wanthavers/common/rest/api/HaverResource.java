@@ -80,7 +80,7 @@ public interface HaverResource {
             @PathParam("user-id") long userId);
 
     @PUT
-    @Path("/{id}")
+    @Path("/{user-id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
@@ -91,6 +91,6 @@ public interface HaverResource {
             @ApiParam(value = "id of the desire", required = true)
             @PathParam("desire-id") long desireId,
             @ApiParam(value = "id of the haver relation", required = true)
-            @PathParam("id") long id,
+            @PathParam("user-id") long userId,
             @ApiParam(value = "new details of the specified haver", required = true) Haver haver);
 }
