@@ -86,6 +86,10 @@ public class Desire extends AbstractModel {
     @Column
     private boolean haverHasRated;
 
+    @DatabaseField
+    @Column
+    private Date expireDate;
+
     private long distanceToUserPosition;
 
     public Desire() {}
@@ -254,6 +258,15 @@ public class Desire extends AbstractModel {
 
     public void setHaverHasRated(boolean haverHasRated) {
         this.haverHasRated = haverHasRated;
+    }
+
+    @JsonProperty
+    public Date getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        this.expireDate = expireDate;
     }
 
     @JsonProperty
