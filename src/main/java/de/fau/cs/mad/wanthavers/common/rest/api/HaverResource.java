@@ -88,6 +88,7 @@ public interface HaverResource {
             notes = "Updates the details of an existing haver relation. Returns the updated object.",
             response = Haver.class)
     Haver updateHaver(
+            @Auth User user,
             @ApiParam(value = "id of the desire", required = true)
             @PathParam("desire-id") long desireId,
             @ApiParam(value = "id of the haver relation", required = true)
@@ -103,6 +104,7 @@ public interface HaverResource {
             notes = "Updates the status of an existing haver relation. Returns the updated object.",
             response = Haver.class)
     Haver updateHaverStatus(
+            @Auth User user,
             @ApiParam(value = "id of the desire", required = true)
             @PathParam("desire-id") long desireId,
             @ApiParam(value = "id of the haver relation", required = true)
