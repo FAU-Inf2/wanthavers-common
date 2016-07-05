@@ -36,8 +36,11 @@ public class Location extends AbstractModel implements Serializable {
     @Column
     private String fullAddress;
 
-    public Location() {}
+    @DatabaseField
+    @Column
+    private String cityName;
 
+    public Location() {}
 
     @JsonProperty
     public long getUserId() {
@@ -82,5 +85,14 @@ public class Location extends AbstractModel implements Serializable {
 
     public void setFullAddress(String fullAddress) {
         this.fullAddress = fullAddress;
+    }
+
+    @JsonProperty
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
