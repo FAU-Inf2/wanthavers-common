@@ -50,10 +50,16 @@ public class DesireFilter {
     @DatabaseField
     private Long haverId;
 
-    @DatabaseField(dataType = DataType.SERIALIZABLE, foreign=true, foreignAutoRefresh=true)
-    private Location location;
-
     private List<Integer> haverStatus;
+
+    @DatabaseField
+    private String description;
+
+    @DatabaseField
+    private String fullAddress;
+
+    @DatabaseField
+    private String cityName;
 
     public Integer getId() {
         return id;
@@ -175,11 +181,27 @@ public class DesireFilter {
         this.haverStatus = haverStatus;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getDescription() {
+        return description;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFullAddress() {
+        return fullAddress;
+    }
+
+    public void setFullAddress(String fullAddress) {
+        this.fullAddress = fullAddress;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
