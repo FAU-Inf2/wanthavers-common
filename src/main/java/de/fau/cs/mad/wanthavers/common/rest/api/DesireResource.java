@@ -1,12 +1,10 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
-import de.fau.cs.mad.wanthavers.common.Chat;
-import de.fau.cs.mad.wanthavers.common.Desire;
-import de.fau.cs.mad.wanthavers.common.DesireFlag;
-import de.fau.cs.mad.wanthavers.common.User;
+import de.fau.cs.mad.wanthavers.common.*;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -77,6 +75,12 @@ public interface DesireResource {
             @ApiParam(value = "id of the Desire", required = true)
             @PathParam("id") long id,
             @ApiParam(value = "new details of the specified Desire", required = true) Desire Desire);
+
+    @RolesAllowed(UserRoles.USER_ROLE_ADMIN)
+    @DELETE
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    void deleteDesire(@PathParam("id") long id);
 
     @PUT
     @Path("/{id}/status")
