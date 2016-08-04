@@ -5,4 +5,5 @@ public final class DesireStatus {
     public static final int STATUS_OPEN = 1;
     public static final int STATUS_IN_PROGRESS = 2;
     public static final int STATUS_DONE = 3;
+    public static final int STATUS_EXPIRED = 4;
 }
