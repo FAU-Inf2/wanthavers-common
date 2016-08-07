@@ -5,16 +5,12 @@ public class CloudMessageSubject {
     /*
         Structure of com.google.firebase.messaging.RemoteMessage (JSON):
         {
-            "to": "<token>",
-            "notification": {
-                "body": ...,
-                "title": ...
-                "icon" ...
-            }
             "data": {
                 "subject": <subject>
+                "message": <message>
                 ["sender": "Yoda" (optional)]
-            }
+            },
+            "registration_ids": [<token1>, <token2>, ...]
         }
      */
 
