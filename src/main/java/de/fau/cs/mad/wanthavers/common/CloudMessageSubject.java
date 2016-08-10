@@ -10,7 +10,7 @@ public class CloudMessageSubject {
                 "message": <message>
                 ["sender": "Yoda" (optional)]
             },
-            "registration_ids": [<token1>, <token2>, ...]
+            "registration_ids": [<token1>, <token2>, ...] -OR (for only one token)- "to": <token>
         }
      */
 
