@@ -97,7 +97,7 @@ public interface HaverResource {
 
     @PUT
     @Path("/{user-id}/status")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(
             value = "Update an existing haver status",
