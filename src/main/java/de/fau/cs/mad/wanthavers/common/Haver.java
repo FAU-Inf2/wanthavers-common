@@ -31,6 +31,10 @@ public class Haver extends AbstractModel {
     @Column(name = Desire.DESIRE_ID, nullable = false)
     private long desireId;
 
+    @DatabaseField
+    @Column
+    private double requestedPrice;
+
     public Haver() {}
 
     public Haver(User user, Date creationDate, long desireId) {
@@ -74,5 +78,14 @@ public class Haver extends AbstractModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @JsonProperty
+    public double getRequestedPrice() {
+        return requestedPrice;
+    }
+
+    public void setRequestedPrice(double requestedPrice) {
+        this.requestedPrice = requestedPrice;
     }
 }

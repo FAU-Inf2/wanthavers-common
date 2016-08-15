@@ -92,6 +92,10 @@ public class Desire extends AbstractModel {
 
     private long distanceToUserPosition;
 
+    @DatabaseField
+    @Column
+    private boolean biddingAllowed;
+
     public Desire() {}
 
     public Desire(String title, String description, User creator, double price, double reward, String currency, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
@@ -276,6 +280,15 @@ public class Desire extends AbstractModel {
 
     public void setDistanceToUserPosition(long distanceToUserPosition) {
         this.distanceToUserPosition = distanceToUserPosition;
+    }
+
+    @JsonProperty
+    public boolean isBiddingAllowed() {
+        return biddingAllowed;
+    }
+
+    public void setBiddingAllowed(boolean biddingAllowed) {
+        this.biddingAllowed = biddingAllowed;
     }
 
     @Override
