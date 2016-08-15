@@ -109,5 +109,5 @@ public interface HaverResource {
             @PathParam("desire-id") long desireId,
             @ApiParam(value = "id of the haver relation", required = true)
             @PathParam("user-id") long userId,
-            int status);
+            @QueryParam("status") int status);
 }
