@@ -1,6 +1,7 @@
 package de.fau.cs.mad.wanthavers.common;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -282,7 +283,7 @@ public class Desire extends AbstractModel {
         this.distanceToUserPosition = distanceToUserPosition;
     }
 
-    @JsonProperty
+    @JsonIgnore
     public boolean isBiddingAllowed() {
         return biddingAllowed;
     }
