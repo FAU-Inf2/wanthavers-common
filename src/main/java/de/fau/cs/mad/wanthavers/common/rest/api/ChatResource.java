@@ -45,8 +45,16 @@ public interface ChatResource {
             @PathParam("id") String id,
             @QueryParam("last_creation_time") Long lastCreationTime,
             @QueryParam("limit") Integer limit
-            );
+    );
 
+    @GET
+    @Path("/{id}/otheruser")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    User getOtherUser(
+            @Auth User user,
+            @PathParam("id") String id
+    );
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
