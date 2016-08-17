@@ -110,4 +110,14 @@ public interface HaverResource {
             @ApiParam(value = "id of the haver relation", required = true)
             @PathParam("user-id") long userId,
             @QueryParam("status") int status);
+
+    @PUT
+    @Path("/{user-id}/requestedprice")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    Haver updateRequestedPrice(
+            @Auth User user,
+            @PathParam("desire-id") long desireId,
+            @PathParam("user-id") long userId,
+            @QueryParam("requestedprice") double requestedPrice);
 }
