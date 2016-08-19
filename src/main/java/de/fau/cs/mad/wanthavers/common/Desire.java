@@ -96,6 +96,8 @@ public class Desire extends AbstractModel {
     @Column
     private boolean biddingAllowed;
 
+    private Long validTimespan;
+
     public Desire() {}
 
     public Desire(String title, String description, User creator, double price, double reward, String currency, Date creation_time, String dropzone_string, double dropzone_lat, double dropzone_long, int colorIndex) {
@@ -237,7 +239,7 @@ public class Desire extends AbstractModel {
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
-    
+
     public int getFlagCounter() {
         return flagCounter;
     }
@@ -289,6 +291,15 @@ public class Desire extends AbstractModel {
 
     public void setBiddingAllowed(boolean biddingAllowed) {
         this.biddingAllowed = biddingAllowed;
+    }
+
+    @JsonProperty
+    public Long getValidTimespan() {
+        return validTimespan;
+    }
+
+    public void setValidTimespan(Long validTimespan) {
+        this.validTimespan = validTimespan;
     }
 
     @Override
