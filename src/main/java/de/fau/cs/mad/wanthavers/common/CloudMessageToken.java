@@ -11,6 +11,8 @@ import static de.fau.cs.mad.wanthavers.common.User.USER_ID;
 @Entity
 @SequenceGenerator(initialValue = 1, name = "idgen", sequenceName = "cloudmessagetokenseq")
 public class CloudMessageToken extends AbstractModel {
+    public static final String IOS_TOKEN = "iOS";
+    public static final String ANDROID_TOKEN = "Android";
 
     @DatabaseField
     @Column(name = USER_ID, nullable = false)
@@ -19,6 +21,10 @@ public class CloudMessageToken extends AbstractModel {
     @DatabaseField
     @Column(nullable = false)
     private String token;
+
+    @DatabaseField
+    @Column(nullable = false)
+    private String tokenType;
 
     @JsonProperty
     public long getUserId() {
@@ -36,5 +42,14 @@ public class CloudMessageToken extends AbstractModel {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @JsonProperty
+    public String getTokenType() {
+        return tokenType;
+    }
+
+    public void setTokenType(String tokenType) {
+        this.tokenType = tokenType;
     }
 }
