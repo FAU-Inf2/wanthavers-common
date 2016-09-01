@@ -23,7 +23,7 @@ public class Desire extends AbstractModel {
     private String title;
 
     @DatabaseField
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String description;
 
     @DatabaseField(foreign = true, dataType = DataType.SERIALIZABLE)
