@@ -75,6 +75,12 @@ public class User extends AbstractModel implements Principal {
     @Column
     private int status;
 
+    @Column
+    private String firstName;
+
+    @Column
+    private String lastName;
+
     public User() {}
 
     public User(String name, String email) {
@@ -155,6 +161,24 @@ public class User extends AbstractModel implements Principal {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @JsonProperty
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @JsonProperty
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @JsonIgnore
