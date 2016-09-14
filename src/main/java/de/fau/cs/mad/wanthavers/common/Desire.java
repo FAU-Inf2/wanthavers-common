@@ -96,6 +96,7 @@ public class Desire extends AbstractModel {
     @Column
     private boolean biddingAllowed;
 
+    @Transient
     private Long validTimespan;
 
     public Desire() {}
