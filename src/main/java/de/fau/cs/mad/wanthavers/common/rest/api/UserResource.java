@@ -1,9 +1,6 @@
 package de.fau.cs.mad.wanthavers.common.rest.api;
 
-import de.fau.cs.mad.wanthavers.common.Desire;
-import de.fau.cs.mad.wanthavers.common.Location;
-import de.fau.cs.mad.wanthavers.common.User;
-import de.fau.cs.mad.wanthavers.common.UserRoles;
+import de.fau.cs.mad.wanthavers.common.*;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 
@@ -115,4 +112,20 @@ public interface UserResource {
             @ApiResponse(code = 400, message = "Invalid id supplied"),
             @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
     void sendToken(@FormParam("email") String email);
+
+    @POST
+    @Path("/{id}/flag")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+            value = "flags an user",
+            notes = "flags an user",
+            response = UserFlag.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "ok"),
+            @ApiResponse(code = 400, message = "Invalid id supplied"),
+            @ApiResponse(code = 500, message = "Server broken, please contact administrator")})
+    UserFlag flagUser(@Auth User user, @PathParam("id") long userId);
+
+
 }
